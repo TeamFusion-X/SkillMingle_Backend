@@ -8,54 +8,54 @@ SkillMingle is a web-based platform designed to facilitate skill exchange among 
 
 -> User Registration and Authentication
 
-    Users can sign up using email addresses or social media accounts. 
-    Robust authentication mechanisms ensure data security and user privacy.
+    * Users can sign up using email addresses or social media accounts. 
+    * Robust authentication mechanisms ensure data security and user privacy.
 
 -> Skill Profile Creation
 
-    Detailed user profiles highlight skills, experience, and areas of expertise. 
-    Users can list skills they wish to teach and those they want to learn.
+    * Detailed user profiles highlight skills, experience, and areas of expertise. 
+    * Users can list skills they wish to teach and those they want to learn.
 
 -> Skill Search and Discovery
 
-    Search for desired skills or explore available skills.
-    Filtering and sorting options streamline skill discovery.
+    * Search for desired skills or explore available skills.
+    * Filtering and sorting options streamline skill discovery.
 
 -> Skill Exchange Requests
 
-    Send and receive exchange requests based on user profiles and interests.
-    Facilitate negotiation of exchange terms.
+    * Send and receive exchange requests based on user profiles and interests.
+    * Facilitate negotiation of exchange terms.
 
 -> Messaging and Communication
 
-    Real-time messaging for discussing exchanges, sharing resources, and scheduling sessions.
+    * Real-time messaging for discussing exchanges, sharing resources, and scheduling sessions.
 
 -> Skill Progress Tracking
 
-    Track learning progress, set goals, and monitor achievements.
+    * Track learning progress, set goals, and monitor achievements.
 
 -> Community Engagement
 
-    Foster community through discussions and group participation.
+    * Foster community through discussions and group participation.
 
 -> Rating and Review System
 
-    Rate and review users to inform others' decisions.
+    * Rate and review users to inform others' decisions.
 
 -> Notification System
 
-    Receive notifications about requests, messages, and activities. 
-    Customizable notification preferences.
+    * Receive notifications about requests, messages, and activities. 
+    * Customizable notification preferences.
 
 -> Privacy and Security Features
 
-    Implement encryption and privacy controls. 
-    Control profile visibility and request permissions.
+    * Implement encryption and privacy controls. 
+    * Control profile visibility and request permissions.
 
 -> Additional Considerations
 
-    Monetization Options: Offer premium features or subscriptions. 
-    Feedback and Iteration: Continuously improve based on user feedback.
+    * Monetization Options: Offer premium features or subscriptions. 
+    * Feedback and Iteration: Continuously improve based on user feedback.
 
 
 * SkillMingle provides a valuable platform for users to connect, learn, and enhance their skills through collaborative exchange
