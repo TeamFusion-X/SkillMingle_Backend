@@ -9,13 +9,15 @@ process.on("uncaughtException", (err) => {
 
 dotenv.config({ path: "./config.env" });
 
-
 const DB = process.env.DATABASE_LOCAL;
+if (process.env.NODE_ENV == "production"){
+	DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
+}
 
 mongoose
 	.connect(DB)
 	.then(() => console.log("Database Connection Successful!"))
-    .catch(err => console.log("Database Connection Unsuccessful -- ", err.name, err.message));
+    .catch(err => console.log("Database Connection Unsuccessful!\n", err.name, err.message));
 
 const port = process.env.PORT || 5500;
 const app = require("./app");
