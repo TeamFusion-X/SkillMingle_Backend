@@ -62,7 +62,7 @@ userSchema.pre('save',async function(next){
 
     //Search Skill Objects and their object Id
     const skillPromises = userSkills.map(async item => {
-        console.log(item);
+        
         let foundSkill = await Skills.findOne({ skill: item });
         
         if (!foundSkill) {
