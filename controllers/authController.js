@@ -4,7 +4,8 @@ const jwt = require('jsonwebtoken');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 
-const User = require('./../models/userModel');
+const User = require('./../models/userModel')
+const Skills = require('./../models/skillsModel')
 
 const signToken = id => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -41,18 +42,12 @@ exports.signup = catchAsync(async(req,res,next) => {
         username: req.body.username,
         email: req.body.email,
         bio: req.body.bio,
-        skills: req.body.skills,
+        userSkills: req.body.userSkills,
         skillsToLearn: req.body.skillsToLearn,
         skillsToTeach: req.body.skillsToTeach,
         password: req.body.password,
         passwordConfirm: req.body.passwordConfirm
     })
-    // res.status(201).json({
-    //     status: 'success',
-    //     userdata: {
-    //         newUser
-    //     } 
-    // })
     createSendToken(newUser, 201, res);
 });
 

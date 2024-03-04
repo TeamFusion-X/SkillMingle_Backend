@@ -4,6 +4,8 @@ const validator = require('validator')
 const crypto = require('crypto')
 const bcrypt = require('bcryptjs');
 
+const Skills = require('./../models/skillsModel')
+
 const userSchema = new mongoose.Schema({
     username: {
         type:String,
@@ -19,8 +21,11 @@ const userSchema = new mongoose.Schema({
     bio: {
         type: String
     },
-    skills: {
+    userSkills: {
         type: [String]
+    },
+    skills: {
+        type: [{type: mongoose.Schema.Types.ObjectId, ref: "Skills"}]
     },
     skillsToLearn: {
         type: [String],
@@ -37,7 +42,6 @@ const userSchema = new mongoose.Schema({
     },
     passwordConfirm: {
         type: String,
-        required: [true, 'Please provide a password'],
         minlength: 8
     }
 });
@@ -50,6 +54,34 @@ userSchema.pre('save',async function(next){
     this.passwordConfirm = undefined;
     next();
 });
+
+// Many to Many referencing 
+// User to Skill and Skill to User
+userSchema.pre('save',async function(next){
+    const userSkills = this.userSkills;
+
+    //Search Skill Objects and their object Id
+    const skillPromises = userSkills.map(async item => {
+        
+        let foundSkill = await Skills.findOne({ skill: item });
+        
+        if (!foundSkill) {
+            foundSkill = await Skills.create({ skill: item });
+        }
+
+        //Storing the user data reference in skill database
+        foundSkill.users.push(this._id);
+        await foundSkill.save();
+        return foundSkill._id;
+    });
+    
+    //Get their Object Id
+    const skillIds = await Promise.all(skillPromises);
+    
+    //Store their Object Id
+    this.skills.push(...skillIds);
+    next();
+})
 
 userSchema.methods.correctPassword = async function(candidatePassword, userPassword){
     return await bcrypt.compare(candidatePassword, userPassword);
