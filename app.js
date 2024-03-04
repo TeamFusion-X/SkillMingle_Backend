@@ -6,6 +6,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 
 // Routes
 const userRouter = require("./routes/userRoutes")
+// const viewRouter = require("./routes/viewRoutes")
 
 const app = express();
 
@@ -25,11 +26,14 @@ const limiter = rateLimit({
 });
 app.use('/api', limiter);
 
+//Parsing to JSON
+app.use(express.json({ limit: '10kb' }));
+
 // Data sanitization against NoSQL query injection
 app.use(mongoSanitize());
 
 // Routes
-app.use('/', viewRouter);
+// app.use('/', viewRouter);
 app.use('/users', userRouter);
 
 module.exports = app;
