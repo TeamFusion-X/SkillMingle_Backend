@@ -7,7 +7,7 @@ const skillsSchema = new mongoose.Schema({
     skill: {
         type: String
     },
-    users: {
+    usersWillingToTeach: {
         type: [{type:mongoose.Schema.Types.ObjectId, ref: "User"}]
     }
 })
