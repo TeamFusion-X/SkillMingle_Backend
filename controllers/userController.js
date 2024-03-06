@@ -11,7 +11,7 @@ const filterObj = (obj, ...allowedFields) => {
 };
   
 exports.getMe = catchAsync(async (req, res, next) => {
-    const user = await Model.findById(req.user.id);
+    const user = await User.findById(req.user.id);
 
     res.status(201).json({
         status : 'success',
