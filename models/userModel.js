@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: [true, 'Please provide your email'],
-        // unique: true,
+        unique: true,
         lowercase: true,
         validate: [validator.isEmail, 'Please provide a valid email']
     },
@@ -43,7 +43,10 @@ const userSchema = new mongoose.Schema({
     passwordConfirm: {
         type: String,
         minlength: 8
-    }
+    },
+    passwordChangedAt: Date,
+    passwordResetToken: String,
+    passwordResetExpires: Date,
 });
 
 userSchema.pre('save',async function(next){
@@ -121,6 +124,17 @@ userSchema.methods.createPasswordResetToken = function() {
     this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
   
     return resetToken;
+};
+
+userSchema.methods.changedPasswordAfter = function(JWTTimestamp) {
+    if (this.passwordChangedAt) {
+      const changedTimestamp = parseInt(this.passwordChangedAt.getTime() / 1000, 10);
+  
+      return JWTTimestamp < changedTimestamp;
+    }
+  
+    // False means NOT changed
+    return false;
 };
 
 const User = mongoose.model('User', userSchema);
