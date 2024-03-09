@@ -1,10 +1,10 @@
-const mongoose = require('mongoose')
-const validator = require('validator')
+import mongoose from 'mongoose';
+import validator from 'validator';
 
-const crypto = require('crypto')
-const bcrypt = require('bcryptjs');
+import crypto from 'crypto';
+import bcrypt from 'bcryptjs';
 
-const Skills = require('./../models/skillsModel')
+import {Skills} from './../models/skillsModel.js';
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema({
     },
     bio: {
         type: String
+    },
+    displayPicture : {
+        type : String,
+        default : "./../public/img/users/default.user.jpeg"
     },
     userSkills: {
         type: [String]
@@ -137,6 +141,4 @@ userSchema.methods.changedPasswordAfter = function(JWTTimestamp) {
     return false;
 };
 
-const User = mongoose.model('User', userSchema);
-
-module.exports = User;
+export const User = mongoose.model('User', userSchema);

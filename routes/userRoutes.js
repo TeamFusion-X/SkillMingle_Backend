@@ -1,8 +1,8 @@
-const express = require('express')
-const userController = require('./../controllers/userController')
-const authController = require('./../controllers/authController')
+import express from 'express';
+import * as userController from './../controllers/userController.js';
+import * as authController from './../controllers/authController.js';
 
-const router = express.Router();
+export const router = express.Router();
 
 router.post('/signup',authController.signup);
 router.post('/login', authController.login);
@@ -17,6 +17,5 @@ router.use(authController.protect);
 router.patch('/updateMyPassword', authController.updatePassword);
 router.get('/me', userController.getMe);
 router.patch('/updateMe', userController.updateMe);
+router.patch('/updateDP', userController.uploadDP, userController.resizeAndSaveDP)
 router.delete('/deleteMe', userController.deleteMe);
-
-module.exports = router;

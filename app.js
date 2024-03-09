@@ -1,18 +1,18 @@
-const express = require('express');
-const morgan = require('morgan');
-const rateLimit = require('express-rate-limit');
-const helmet = require('helmet');
-const mongoSanitize = require('express-mongo-sanitize');
-const cookieParser = require('cookie-parser');
+import express from 'express';
+import morgan from 'morgan';
+import rateLimit from 'express-rate-limit';
+import helmet from 'helmet';
+import mongoSanitize from 'express-mongo-sanitize';
+import cookieParser from 'cookie-parser';
 
-const AppError = require('./utils/appError');
-const globalErrorHandler = require('./controllers/errorController');
+import {AppError} from './utils/appError.js';
+import {globalErrorHandler} from './controllers/errorController.js';
 
 // Routes
-const userRouter = require("./routes/userRoutes")
+import {router as userRouter} from "./routes/userRoutes.js";
 // const viewRouter = require("./routes/viewRoutes")
 
-const app = express();
+export const app = express();
 
 // Set security HTTP headers
 app.use(helmet());
@@ -45,5 +45,3 @@ app.all('*', (req, res, next) => {
 });
 
 app.use(globalErrorHandler);
-
-module.exports = app;

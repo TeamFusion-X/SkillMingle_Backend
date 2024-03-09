@@ -1,6 +1,8 @@
-const User = require('./../models/userModel');
-const catchAsync = require('./../utils/catchAsync');
-const AppError = require('./../utils/appError');
+import {User} from './../models/userModel.js';
+import {catchAsync} from './../utils/catchAsync.js';
+import {AppError} from './../utils/appError.js';
+import {uploadImage} from './../utils/fileUploads.js';
+import sharp from 'sharp';
 
 const filterObj = (obj, ...allowedFields) => {
     const newObj = {};
@@ -10,7 +12,7 @@ const filterObj = (obj, ...allowedFields) => {
     return newObj;
 };
   
-exports.getMe = catchAsync(async (req, res, next) => {
+export const getMe = catchAsync(async (req, res, next) => {
     const user = await User.findById(req.user.id);
 
     res.status(201).json({
@@ -20,8 +22,31 @@ exports.getMe = catchAsync(async (req, res, next) => {
         }
     });
 });
+
+export const uploadDP = uploadImage.single('DP'); // DP is the field name in which the display picture should be passed
+
+export const resizeAndSaveDP = catchAsync(async (req, res, next) => {
+	if (!req.file) return next(new AppError("Please provide an image", 400));
+
+	const filename = `user-${req.user.id}-${Date.now()}.jpeg`;
+
+	await sharp(req.file.buffer)
+		.resize(500, 500)
+		.toFormat('jpeg')
+		.jpeg({quality : 80})
+		.toFile(`public/img/users/${filename}`);
+
+	await User.findByIdAndUpdate(req.user.id, {displayPicture : filename}, {
+		new: true,
+		runValidators: true
+	});
+	
+	res.status(200).json({
+		status : "success"
+	})
+});
   
-exports.updateMe = catchAsync(async (req, res, next) => {
+export const updateMe = catchAsync(async (req, res, next) => {
     // 1) Create error if user POSTs password data
     if (req.body.password || req.body.passwordConfirm) {
       return next(
@@ -30,7 +55,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     }
   
     // 2) Filtered out unwanted fields names that are not allowed to be updated
-    const filteredBody = filterObj(req.body, 'name', 'email', 'userSkills', 'skillsToLearn', 'skillsToTeach');
+    const filteredBody = filterObj(req.body, 'username', 'email', 'userSkills', 'skillsToLearn', 'skillsToTeach', 'bio');
     if (req.file) filteredBody.photo = req.file.filename;
   
     // 3) Update user document
@@ -47,7 +72,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     });
 });
 
-exports.deleteMe = catchAsync(async (req, res, next) => {
+export const deleteMe = catchAsync(async (req, res, next) => {
     await User.findByIdAndDelete(req.user.id);
   
     res.status(204).json({

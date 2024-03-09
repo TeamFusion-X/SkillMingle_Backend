@@ -1,7 +1,7 @@
-const mongoose = require('mongoose')
-const validator = require('validator')
+import mongoose from 'mongoose';
+import validator from 'validator'
 
-const User = require('./../models/userModel')
+import {User} from './../models/userModel.js';
 
 const skillsSchema = new mongoose.Schema({
     skill: {
@@ -13,6 +13,4 @@ const skillsSchema = new mongoose.Schema({
 })
 
 
-const Skills = mongoose.model('Skills', skillsSchema);
-
-module.exports = Skills;
+export const Skills = mongoose.model('Skills', skillsSchema);
