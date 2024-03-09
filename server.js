@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
 process.on("uncaughtException", (err) => {
 	console.log("Uncaught Exception! Shutting down...");
@@ -20,7 +20,7 @@ mongoose
     .catch(err => console.log("Database Connection Unsuccessful!\n", err.name, err.message));
 
 const port = process.env.PORT || 5500;
-const app = require("./app");
+import {app} from './app.js';
 
 const server = app.listen(port, () => {
 	console.log(`Server running on port ${port}..`);
