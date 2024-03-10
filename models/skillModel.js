@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import validator from 'validator'
 
-import {User} from './../models/userModel.js';
+import {User} from './userModel.js';
 
 const skillsSchema = new mongoose.Schema({
     skill: {
@@ -13,4 +13,4 @@ const skillsSchema = new mongoose.Schema({
 })
 
 
-export const Skills = mongoose.model('Skills', skillsSchema);
+export const Skill = mongoose.model('Skill', skillsSchema);

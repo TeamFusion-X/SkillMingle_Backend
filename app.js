@@ -3,10 +3,13 @@ import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
 import mongoSanitize from 'express-mongo-sanitize';
+import dotenv from "dotenv";
 import cookieParser from 'cookie-parser';
 
 import {AppError} from './utils/appError.js';
 import {globalErrorHandler} from './controllers/errorController.js';
+
+dotenv.config({ path: "./config.env" });
 
 // Routes
 import {router as userRouter} from "./routes/userRoutes.js";

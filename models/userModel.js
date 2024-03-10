@@ -4,12 +4,17 @@ import validator from 'validator';
 import crypto from 'crypto';
 import bcrypt from 'bcryptjs';
 
-import {Skills} from './../models/skillsModel.js';
+import {Skill} from './skillModel.js';
+import {Request} from './requestModel.js';
 
 const userSchema = new mongoose.Schema({
     username: {
-        type:String,
-        required:[true,'Please tell us your name']
+        type : String,
+        unique : [true, 'This username is already taken! Try another one..'],
+        required :[true,'Please set a username']
+    },
+    name : {
+        type : String,
     },
     email: {
         type: String,
@@ -29,7 +34,7 @@ const userSchema = new mongoose.Schema({
         type: [String]
     },
     skills: {
-        type: [{type: mongoose.Schema.Types.ObjectId, ref: "Skills"}]
+        type: [{type: mongoose.Schema.Types.ObjectId, ref: "Skill"}]
     },
     skillsToLearn: {
         type: [String],
@@ -38,6 +43,9 @@ const userSchema = new mongoose.Schema({
     skillsToTeach: {
         type: [String],
         required: [false]
+    },
+    requestsReceived: {
+        type : [{type: mongoose.Schema.Types.ObjectId, ref: "Request"}]
     },
     password: {
         type: String,
@@ -97,10 +105,10 @@ userSchema.pre('save',async function(next){
     //Search Skill Objects and their object Id
     const skillPromises = skillsToTeach.map(async item => {
         
-        let foundSkill = await Skills.findOne({ skill: item });
+        let foundSkill = await Skill.findOne({ skill: item });
         
         if (!foundSkill) {
-            foundSkill = await Skills.create({ skill: item });
+            foundSkill = await Skill.create({ skill: item });
         }
 
         //Storing the user data reference in skill database
