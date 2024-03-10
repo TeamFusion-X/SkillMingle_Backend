@@ -1,4 +1,5 @@
 import {User} from './../models/userModel.js';
+import {Request} from './../models/requestModel.js';
 import {catchAsync} from './../utils/catchAsync.js';
 import {AppError} from './../utils/appError.js';
 import {uploadImage} from './../utils/fileUploads.js';
@@ -15,7 +16,7 @@ const filterObj = (obj, ...allowedFields) => {
 export const getMe = catchAsync(async (req, res, next) => {
     const user = await User.findById(req.user.id);
 
-    res.status(201).json({
+    res.status(200).json({
         status : 'success',
         data : {
             user : user
@@ -80,3 +81,32 @@ export const deleteMe = catchAsync(async (req, res, next) => {
       data: null
     });
 });
+
+export const getRequests = catchAsync(async (req, res, next) => {
+	const user = await User.findById(req.user.id);
+
+    res.status(201).json({
+        status : 'success',
+        data : {
+            requests : user.requestsReceived
+        }
+    });
+});
+
+export const sendRequest = catchAsync(async (req, res, next) => {
+	// console.log(req.params);
+
+	const sentFrom = await User.findById(req.user.id);
+
+	const newRequest = await Request.create({
+		skill : req.params.skill,
+		sender : sentFrom
+	})
+	
+	await User.updateOne({username : req.params.username}, {$push : {requestsReceived : newRequest}});
+	
+	res.status(200).json({
+		status : "success",
+		message : "Request Sent Successfully"
+	});
+})
