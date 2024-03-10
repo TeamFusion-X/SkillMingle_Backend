@@ -1,13 +1,10 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv";
 
 process.on("uncaughtException", (err) => {
 	console.log("Uncaught Exception! Shutting down...");
 	console.log(err.name, err.message);
 	process.exit(1);
 });
-
-dotenv.config({ path: "./config.env" });
 
 const DB = process.env.DATABASE_LOCAL;
 if (process.env.NODE_ENV == "production"){
