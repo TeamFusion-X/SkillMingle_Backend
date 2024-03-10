@@ -7,21 +7,19 @@ const requestSchema = new mongoose.Schema(
     {
         skill: {
             type : String
-            // type: [{type:mongoose.Schema.Types.ObjectId, ref: "Skill"}]
         },
         sender: {
-            type : String
-            // type: [{type:mongoose.Schema.Types.ObjectId, ref: "User"}]
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
         },
-        active: {
+        accepted: {
             type : Boolean,
-            default : true
+            default : false
         }
     },
     {
         timestamps : true
     }
 )
-
 
 export const Request = mongoose.model('Requests', requestSchema);

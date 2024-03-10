@@ -5,7 +5,8 @@ const chatMessageSchema = new mongoose.Schema({
     sender: {type: mongoose.Schema.Types.ObjectId, ref: 'Sender'},
     content: String,
     chat: {type: mongoose.Schema.Types.ObjectId, ref: 'ChatId'}
-    }, { timestamps: true }
+    }, 
+    { timestamps: true }
 );
 
 const chatSchema = new mongoose.Schema({
@@ -14,9 +15,10 @@ const chatSchema = new mongoose.Schema({
         default: false
     },
     participants: {
-        type: [{type: mongoose.Schema.Types.ObjectId, ref: 'Users'}]
+        type: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
     }
-    }, { timestamps: true }
+    }, 
+    { timestamps: true }
 );
 
 export const Message = mongoose.model('Message', chatMessageSchema);

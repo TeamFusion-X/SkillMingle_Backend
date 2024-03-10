@@ -5,7 +5,6 @@ import {catchAsync} from './../utils/catchAsync.js';
 import {AppError} from './../utils/appError.js';
 
 import {User} from './../models/userModel.js';
-import {Skill} from './../models/skillModel.js';
 
 const signToken = id => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -44,10 +43,6 @@ export const signup = catchAsync(async(req,res,next) => {
         email: req.body.email,
         password: req.body.password,
         passwordConfirm: req.body.passwordConfirm,
-        bio: req.body.bio,
-        userSkills: req.body.userSkills,
-        skillsToLearn: req.body.skillsToLearn,
-        skillsToTeach: req.body.skillsToTeach
     })
     createSendToken(newUser, 201, res);
 });

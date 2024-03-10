@@ -28,13 +28,10 @@ const userSchema = new mongoose.Schema({
     },
     displayPicture : {
         type : String,
-        default : "./../public/img/users/default.user.jpeg"
+        default : "/img/users/default-user.jpeg"
     },
     userSkills: {
         type: [String]
-    },
-    skills: {
-        type: [{type: mongoose.Schema.Types.ObjectId, ref: "Skill"}]
     },
     skillsToLearn: {
         type: [String],

@@ -1,5 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
+import path from 'path';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
 import mongoSanitize from 'express-mongo-sanitize';
@@ -13,7 +14,7 @@ dotenv.config({ path: "./config.env" });
 
 // Routes
 import {router as userRouter} from "./routes/userRoutes.js";
-// const viewRouter = require("./routes/viewRoutes")
+import {router as requestRouter} from "./routes/requestRoutes.js";
 
 export const app = express();
 
@@ -33,6 +34,11 @@ const limiter = rateLimit({
 });
 app.use('/api', limiter);
 
+// Serving static files
+const __dirname = path.resolve();
+console.log(path.join(__dirname, 'public'));
+app.use(express.static(path.join(__dirname, 'public')));
+
 //Parsing to JSON
 app.use(express.json({ limit: '10kb' }));
 
@@ -40,8 +46,8 @@ app.use(express.json({ limit: '10kb' }));
 app.use(mongoSanitize());
 
 // Routes
-// app.use('/', viewRouter);
 app.use('/api/users', userRouter);
+app.use('/api/requests', requestRouter);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));
