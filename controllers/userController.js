@@ -1,5 +1,4 @@
 import {User} from './../models/userModel.js';
-import {Request} from './../models/requestModel.js';
 import {catchAsync} from './../utils/catchAsync.js';
 import {AppError} from './../utils/appError.js';
 import {uploadImage} from './../utils/fileUploads.js';
@@ -37,7 +36,9 @@ export const resizeAndSaveDP = catchAsync(async (req, res, next) => {
 		.jpeg({quality : 80})
 		.toFile(`public/img/users/${filename}`);
 
-	await User.findByIdAndUpdate(req.user.id, {displayPicture : filename}, {
+	const location = `/img/users/${filename}`;
+
+	await User.findByIdAndUpdate(req.user.id, {displayPicture : location}, {
 		new: true,
 		runValidators: true
 	});
@@ -48,16 +49,21 @@ export const resizeAndSaveDP = catchAsync(async (req, res, next) => {
 });
   
 export const updateMe = catchAsync(async (req, res, next) => {
-    // 1) Create error if user POSTs password data
+    // 1) Create error if user POSTs password data or upldates DP
     if (req.body.password || req.body.passwordConfirm) {
       return next(
         new AppError('This route is not for password updates. Please use /updateMyPassword.', 400)
       );
     }
+    if (req.file){
+      return next(
+        new AppError('This route is not for updating display picture. Please use /updateDP', 400)
+      )
+    }
+
   
     // 2) Filtered out unwanted fields names that are not allowed to be updated
-    const filteredBody = filterObj(req.body, 'username', 'email', 'userSkills', 'skillsToLearn', 'skillsToTeach', 'bio');
-    if (req.file) filteredBody.photo = req.file.filename;
+    const filteredBody = filterObj(req.body, 'name', 'email', 'userSkills', 'skillsToLearn', 'skillsToTeach', 'bio');
   
     // 3) Update user document
     const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
@@ -81,32 +87,3 @@ export const deleteMe = catchAsync(async (req, res, next) => {
       data: null
     });
 });
-
-export const getRequests = catchAsync(async (req, res, next) => {
-	const user = await User.findById(req.user.id);
-
-    res.status(201).json({
-        status : 'success',
-        data : {
-            requests : user.requestsReceived
-        }
-    });
-});
-
-export const sendRequest = catchAsync(async (req, res, next) => {
-	// console.log(req.params);
-
-	const sentFrom = await User.findById(req.user.id);
-
-	const newRequest = await Request.create({
-		skill : req.params.skill,
-		sender : sentFrom
-	})
-	
-	await User.updateOne({username : req.params.username}, {$push : {requestsReceived : newRequest}});
-	
-	res.status(200).json({
-		status : "success",
-		message : "Request Sent Successfully"
-	});
-})

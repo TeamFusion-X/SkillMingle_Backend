@@ -19,6 +19,3 @@ router.get('/me', userController.getMe);
 router.patch('/updateMe', userController.updateMe);
 router.patch('/updateDP', userController.uploadDP, userController.resizeAndSaveDP)
 router.delete('/deleteMe', userController.deleteMe);
-
-router.get('/requests', userController.getRequests);
-router.route('/sendRequest/skill/:skill/username/:username').get(userController.sendRequest);
