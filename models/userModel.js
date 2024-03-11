@@ -44,6 +44,12 @@ const userSchema = new mongoose.Schema({
     requestsReceived: {
         type : [{type: mongoose.Schema.Types.ObjectId, ref: "Request"}]
     },
+    teachingConversations : {
+        type : [{type: mongoose.Schema.Types.ObjectId, ref: "Chat"}]
+    },
+    learningConversations : {
+        type : [{type: mongoose.Schema.Types.ObjectId, ref: "Chat"}]
+    },
     password: {
         type: String,
         required: [true, 'Please provide a password'],
@@ -66,35 +72,6 @@ userSchema.pre('save',async function(next){
     this.passwordConfirm = undefined;
     next();
 });
-
-// // Many to Many referencing 
-// // User to Skill and Skill to User
-// userSchema.pre('save',async function(next){
-//     const userSkills = this.userSkills;
-
-//     //Search Skill Objects and their object Id
-//     const skillPromises = userSkills.map(async item => {
-        
-//         let foundSkill = await Skills.findOne({ skill: item });
-        
-//         if (!foundSkill) {
-//             foundSkill = await Skills.create({ skill: item });
-//         }
-
-//         //Storing the user data reference in skill database
-//         foundSkill.users.push(this._id);
-//         await foundSkill.save();
-//         return foundSkill._id;
-//     });
-    
-//     //Get their Object Id
-//     const skillIds = await Promise.all(skillPromises);
-    
-//     //Store their Object Id
-//     this.skills.push(...skillIds);
-//     next();
-// })
-
 
 userSchema.pre('save',async function(next){
     const skillsToTeach = this.skillsToTeach;

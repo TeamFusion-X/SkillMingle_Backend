@@ -36,7 +36,6 @@ app.use('/api', limiter);
 
 // Serving static files
 const __dirname = path.resolve();
-console.log(path.join(__dirname, 'public'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Parsing to JSON
