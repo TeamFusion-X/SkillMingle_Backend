@@ -11,10 +11,6 @@ const requestSchema = new mongoose.Schema(
         sender: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
-        },
-        accepted: {
-            type : Boolean,
-            default : false
         }
     },
     {
