@@ -15,6 +15,7 @@ dotenv.config({ path: "./config.env" });
 // Routes
 import {router as userRouter} from "./routes/userRoutes.js";
 import {router as requestRouter} from "./routes/requestRoutes.js";
+import {router as chatRouter} from "./routes/chatRoutes.js";
 
 export const app = express();
 
@@ -47,6 +48,8 @@ app.use(mongoSanitize());
 // Routes
 app.use('/api/users', userRouter);
 app.use('/api/requests', requestRouter);
+app.use('/api/chats', chatRouter)
+
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));
