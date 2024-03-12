@@ -8,7 +8,7 @@ SkillMingle is a web-based platform designed to facilitate skill exchange among 
 
 -> User Registration and Authentication
 
-    Users can sign up using email addresses or social media accounts. 
+    Users can sign up using email addresses. 
     Robust authentication mechanisms ensure data security and user privacy.
 
 -> Skill Profile Creation
@@ -46,11 +46,6 @@ SkillMingle is a web-based platform designed to facilitate skill exchange among 
 
     Receive notifications about requests, messages, and activities. 
     Customizable notification preferences.
-
--> Privacy and Security Features
-
-    Implement encryption and privacy controls. 
-    Control profile visibility and request permissions.
 
 -> Additional Considerations
 
