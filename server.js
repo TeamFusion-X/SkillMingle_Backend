@@ -23,6 +23,19 @@ const server = app.listen(port, () => {
 	console.log(`Server running on port ${port}..`);
 });
 
+// Socket 
+import {Server as socket} from 'socket.io';
+
+const io = new socket(server);
+
+io.on('connection', (socket) => {
+    console.log('Connected...')
+    socket.on('message', (msg) => {
+        socket.broadcast.emit('message', msg)
+    })
+
+})
+
 process.on("unhandledRejection", (err) => {
 	console.log("Unhandled Rejection! Shutting down..");
 	console.log(err.name, err.message);
