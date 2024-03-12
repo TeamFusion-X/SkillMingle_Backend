@@ -19,6 +19,7 @@ SkillMingle is a web-based platform designed to facilitate skill exchange among 
 -> Skill Search and Discovery
 
     Search for desired skills or explore available skills.
+    Proper recommendation system with personalized suggestions.
     Filtering and sorting options streamline skill discovery.
 
 -> Skill Exchange Requests
