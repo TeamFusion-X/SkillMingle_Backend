@@ -27,6 +27,12 @@ const chatSchema = new mongoose.Schema(
         participants: {
             type: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
         },
+        skillProgress : {
+            type : Number,
+            default : 0,
+            min : 0,
+            max : 100
+        },
         messages : {
             type: [{type: mongoose.Schema.Types.ObjectId, ref: 'Message'}]
         }
