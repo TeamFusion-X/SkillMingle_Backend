@@ -1,16 +1,27 @@
 const socket = io()
-let name;
+
+// import io from 'socket.io-client';
+
+// const socket = io('http://localhost:3000');
+let name = "ar";
+let roomid = 1;
 let textarea = document.querySelector('#textarea')
 let messageArea = document.querySelector('.message__area')
-do {
-    name = prompt('Please enter your name: ')
-} while(!name)
+
+// do {
+//     name = prompt('Please enter your name: ');
+//     room = prompt('Please enter your roomid: ');
+// } while(!name)
+
+
+socket.emit('join-room', room);
 
 textarea.addEventListener('keyup', (e) => {
     if(e.key === 'Enter') {
         sendMessage(e.target.value)
     }
-})
+});
+
 
 function sendMessage(message) {
     let msg = {
@@ -23,7 +34,8 @@ function sendMessage(message) {
     scrollToBottom()
 
     // Send to server 
-    socket.emit('message', msg)
+    
+    socket.emit('send-message', msg, room);
 
 }
 
@@ -41,9 +53,9 @@ function appendMessage(msg, type) {
 }
 
 // Recieve messages 
-socket.on('message', (msg) => {
+socket.on('receive-message', (msg) => {
     appendMessage(msg, 'incoming')
-    scrollToBottom()
+    scrollToBottom();
 })
 
 function scrollToBottom() {

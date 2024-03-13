@@ -50,7 +50,6 @@ app.use('/api/users', userRouter);
 app.use('/api/requests', requestRouter);
 app.use('/api/chats', chatRouter)
 
-
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));
 });

@@ -50,6 +50,17 @@ const userSchema = new mongoose.Schema({
     learningConversations : {
         type : [{type: mongoose.Schema.Types.ObjectId, ref: "Chat"}]
     },
+    teachingRating : {
+        type : Number,
+        default : 0
+    },
+    numberOfRatings : {
+        type : Number,
+        default : 0
+    },
+    reviews : {
+        type : [String]
+    },
     password: {
         type: String,
         required: [true, 'Please provide a password'],

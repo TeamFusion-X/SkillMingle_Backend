@@ -30,10 +30,23 @@ const io = new socket(server);
 
 io.on('connection', (socket) => {
     console.log('Connected...')
-    socket.on('message', (msg) => {
-        socket.broadcast.emit('message', msg)
-    })
+	
+	socket.on('join-room', (roomId) => {
+        socket.join(roomId);
+        console.log(`Socket ${socket.id} joined room ${roomId}`);
+    });
+	
+    socket.on('send-message', (msg,room) => {
+		console.log(room);
+		console.log(msg);
+        if(room === ""){
+			socket.broadcast.emit('receive-message', msg)
+		}
+		else{
+			socket.to(room).emit('receive-message',msg)
+		}
 
+    })
 })
 
 process.on("unhandledRejection", (err) => {
