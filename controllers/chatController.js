@@ -58,6 +58,7 @@ export const getChat = catchAsync(async (req, res, next) => {
     
     const filePath = path.join(__dirname, 'public', 'index.html');
 
+	
     res.status(200).sendFile(filePath);
 })
 
