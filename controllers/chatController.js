@@ -67,7 +67,8 @@ export const getChat = catchAsync(async (req, res, next) => {
     // const roomID = chat._id;
     // const receiver = (req.user.id == chat.participants[0]._id) ? chat.participants[1].username : chat.participants[0].username;
     
-    res.status(200).json({chat : chatController});
+    res.status(200).sendFile(filePath);
+    // .json({chat :chatController}).
 
 })
 

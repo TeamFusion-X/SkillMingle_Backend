@@ -1,18 +1,11 @@
 const socket = io()
 
-// import io from 'socket.io-client';
+const currentUrl = window.location.href; // Url retrieve
+let room = currentUrl.split('/')[5];
 
-// const socket = io('http://localhost:3000');
-let name = "ar";
-let roomid = 1;
+let name = "Daddy"; // Change
 let textarea = document.querySelector('#textarea')
 let messageArea = document.querySelector('.message__area')
-
-// do {
-//     name = prompt('Please enter your name: ');
-//     room = prompt('Please enter your roomid: ');
-// } while(!name)
-
 
 socket.emit('join-room', room);
 
