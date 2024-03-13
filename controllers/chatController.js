@@ -2,8 +2,9 @@ import {User} from './../models/userModel.js';
 import {Request} from './../models/requestModel.js';
 import {Chat} from './../models/chatModel.js';
 import {catchAsync} from './../utils/catchAsync.js';
-    
+
 export const getTeachingChats = catchAsync(async (req, res, next) => {
+    res.status(200)
     const user = await User.findById(req.user.id);
 
     const chatPromise = user.teachingConversations.map(async chatID => {
@@ -49,13 +50,15 @@ export const getLearningChats = catchAsync(async (req, res, next) => {
     })  
 });
 
+import path from 'path';
+const __dirname = path.resolve();
 
 export const getChat = catchAsync(async (req, res, next) => {
     const chat = await Chat.findById(req.params.chatId);
+    
+    const filePath = path.join(__dirname, 'public', 'index.html');
 
-    res.status(200).json({
-        status : "success",
-        chat : chat
-    })
+	
+    res.status(200).sendFile(filePath);
 })
 
