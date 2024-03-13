@@ -53,7 +53,7 @@ io.on('connection', (socket) => {
 				content: msg.message
 			});
 			
-			//Store Message to 
+			//Store Message to Chat Schema
 			currentChat.messages.push(currentMessage._id);
 			await currentChat.save();
 
