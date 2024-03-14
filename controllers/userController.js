@@ -27,7 +27,7 @@ export const getUser = catchAsync(async (req, res, next) => {
 	const user = JSON.parse(
 		JSON.stringify(await User.findOne({ username: req.params.username }))
 	);
-
+	
 	if (!user) {
 		res.status(200).json({
 			status: "Success",
@@ -47,7 +47,7 @@ export const getUser = catchAsync(async (req, res, next) => {
 			"teachingRating",
 			"reviews"
 		);
-		console.log(filteredUser);
+
 		res.status(200).json({
 			status: "Success",
 			user: filteredUser,
