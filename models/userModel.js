@@ -59,7 +59,7 @@ const userSchema = new mongoose.Schema({
         default : 0
     },
     reviews : {
-        type : [String]
+        type : [{type: mongoose.Schema.Types.ObjectId, ref: "Review"}]
     },
     password: {
         type: String,
@@ -75,7 +75,7 @@ const userSchema = new mongoose.Schema({
     passwordResetExpires: Date,
 });
 
-userSchema.pre('save',async function(next){
+userSchema.pre('save', async function(next){
     if(!this.isModified('password'))    return next();
 
     this.password = await bcrypt.hash(this.password,12);
@@ -84,24 +84,26 @@ userSchema.pre('save',async function(next){
     next();
 });
 
-userSchema.pre('save',async function(next){
-    const skillsToTeach = this.skillsToTeach;
+userSchema.pre(['updateOne', 'findByIdAndUpdate', 'findOneAndUpdate'], async function(next){
+        const skillsToTeach = this._update.skillsToTeach;
 
-    //Search Skill Objects and their object Id
-    const skillPromises = skillsToTeach.map(async item => {
-        
-        let foundSkill = await Skill.findOne({ skill: item });
-        
-        if (!foundSkill) {
-            foundSkill = await Skill.create({ skill: item });
+        if (skillsToTeach){
+            //Search Skill Objects and their object Id
+            const skillPromises = skillsToTeach.map(async item => {
+                
+                let foundSkill = await Skill.findOne({ skill: item });
+                
+                if (!foundSkill) {
+                    foundSkill = await Skill.create({ skill: item });
+                }
+    
+                //Storing the user data reference in skill database
+                const userId = this.getFilter('_id');
+                foundSkill.usersWillingToTeach.push(userId);
+                await foundSkill.save();
+            });
         }
 
-        //Storing the user data reference in skill database
-        foundSkill.usersWillingToTeach.push(this._id);
-        await foundSkill.save();
-    });
-
-    next();
 })
 
 userSchema.methods.correctPassword = async function(candidatePassword, userPassword){
