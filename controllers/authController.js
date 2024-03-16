@@ -3,6 +3,7 @@ import {promisify} from 'util';
 import jwt from 'jsonwebtoken';
 import {catchAsync} from './../utils/catchAsync.js';
 import {AppError} from './../utils/appError.js';
+import { sendEmail } from '../utils/email.js';
 
 import {User} from './../models/userModel.js';
 
@@ -133,7 +134,16 @@ export const forgotPassword = catchAsync(async (req, res, next) => {
   // 3) Send it to user's email
   try {
     const resetURL = `${req.protocol}://${req.get('host')}/api/v1/users/resetPassword/${resetToken}`;
-    await new Email(user, resetURL).sendPasswordReset();
+    const options = {
+		email : req.body.email,
+		subject : "Password Reset",
+		message : `Hii ${user.name}!! \nPlease use the following link for resetting your password. \nPassword Reset URL : ${resetURL}`,
+		attachments : [{
+			filename : "default-user.jpeg",
+			path : "https://img.freepik.com/free-photo/portrait-person-attending-vibrant-techno-music-party_23-2150551577.jpg?size=626&ext=jpg"
+		}]
+    }
+    await sendEmail(options);
 
     res.status(200).json({
       status: 'success',
