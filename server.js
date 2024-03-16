@@ -14,7 +14,7 @@ if (process.env.NODE_ENV == "production"){
 mongoose
 	.connect(DB)
 	.then(() => console.log("Database Connection Successful!"))
-    .catch(err => console.log("Database Connection Unsuccessful!\n", err.name, err.message));
+	.catch(err => console.log("Database Connection Unsuccessful!\n", err.name, err.message));
 
 const port = process.env.PORT || 5500;
 import {app} from './app.js';
