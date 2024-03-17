@@ -8,4 +8,3 @@ router.use(authController.protect);
 
 router.get("/:skill/aggregation", recommendController.aggregation);
 router.get("/:skill/ml", recommendController.machineLearning);
-router.get("/:skill/graphs", recommendController.graphs);

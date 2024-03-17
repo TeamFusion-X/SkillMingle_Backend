@@ -4,11 +4,22 @@ import { AppError } from "./../utils/appError.js";
 import { uploadImage } from "./../utils/fileUploads.js";
 import sharp from "sharp";
 
+
 const filterObj = (obj, ...allowedFields) => {
 	const newObj = {};
+	const requireCaseConversion = ["userSkills", "skillsToLearn", "skillsToTeach"];
+	
 	Object.keys(obj).forEach((el) => {
-		if (allowedFields.includes(el)) newObj[el] = obj[el];
+		if (allowedFields.includes(el)){
+			if (requireCaseConversion.includes(el)){
+				newObj[el] = obj[el].map(item => {return item.toLowerCase()});
+			}
+			else {
+				newObj[el] = obj[el];
+			}
+		}
 	});
+
 	return newObj;
 };
 
