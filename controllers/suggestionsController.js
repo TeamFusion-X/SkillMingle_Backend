@@ -89,7 +89,7 @@ export const suggestUsers = catchAsync(async(req,res,next) => {
     res.status(200).json({
 		status: "successfully fetched suggestions",
 		data: {
-			user: rankedUsers
+			user: rankedUsersDetails
 		},
 	});
    
