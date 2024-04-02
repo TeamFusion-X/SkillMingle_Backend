@@ -1,0 +1,285 @@
+Word,Description
+3D printing,Creating three-dimensional objects by depositing material layer by layer using a 3D printer.
+A/B testing,Comparing two or more versions of a product or service to determine which performs better.
+ACID properties,"Ensuring reliable database transactions by adhering to Atomicity, Consistency, Isolation, and Durability principles."
+Acapella singing,Singing without instrumental accompaniment.
+Access control,"Regulating access to database resources based on user roles, permissions, and privileges."
+Acrobatics,"Performing gymnastic feats that require balance, agility, and coordination."
+Acting,The art of portraying a character in a performance.
+Adobe Photoshop,Software used for editing and manipulating digital images.
+Agile methodology,"An iterative approach to software development, emphasizing flexibility and collaboration."
+Algorithm design,The process of creating step-by-step procedures or rules for solving computational problems.
+Android app development,Creating applications for the Android operating system using programming languages such as Java or Kotlin.
+Animation,The process of creating moving images by sequencing drawings or computer-generated images.
+App development,Creating software applications for mobile devices or computers.
+Apriori algorithm,Finding frequent itemsets in transactional databases to generate association rules.
+Archery,The sport or practice of shooting arrows with a bow.
+Artificial intelligence,"The simulation of human intelligence processes by machines, especially computer systems."
+Association rule learning,Discovering interesting associations or patterns in transactional data.
+Astronomy,"The scientific study of celestial objects such as stars, planets, and galaxies."
+Autoencoders,Learning efficient representations of data by compressing and decompressing it using neural networks.
+Automated testing,Using software tools to automatically test code and identify defects.
+Automatic speech recognition (ASR),Transcribing spoken language into text automatically using machine learning techniques.
+Backup and recovery,Implementing strategies and procedures for backing up and restoring database data and structures.
+Baking,"The skill of preparing food, especially bread and cakes, by combining and heating ingredients."
+Barista skills,The art of preparing and serving coffee beverages.
+Basketball,A team sport played on a rectangular court with a hoop at each end.
+Batch processing,"Processing large volumes of data in scheduled batches, often using technologies like Apache Spark or Hadoop."
+Bayesian statistics,Using Bayesian inference to update beliefs about parameters or hypotheses based on observed data.
+Beekeeping,"The practice of maintaining bee colonies, usually for the purpose of harvesting honey."
+Big data analytics,Analyzing large and complex datasets to extract valuable insights and information.
+Blacksmithing,"The craft of shaping and forging metal, especially iron and steel."
+Blockchain development,Building decentralized applications and systems using blockchain technology.
+Bonsai cultivation,The art of growing miniature trees in pots or containers.
+Business intelligence tools,"Using tools like Tableau, Power BI, or QlikView for data visualization and analysis."
+C++,"C++ is a high-level, general-purpose programming language"
+Cake decorating,"The skill of embellishing cakes with frosting, icing, and decorative elements."
+Calligraphy,"The art of beautiful handwriting, often using special pens or brushes."
+Card games,"Various games played with a deck of playing cards, such as poker, solitaire, and bridge."
+Carp fishing,"A specialized form of fishing that targets carp, a type of freshwater fish."
+Carpentry,The skill of working with wood to create structures or objects.
+Caving,Exploring natural underground cave systems.
+Change management,"Managing changes to database schemas, configurations, and data to minimize disruption and risk."
+Chess,A strategic board game played by two players on a checkered board.
+Chessboxing,A hybrid sport that combines chess and boxing.
+Circus skills,"Various skills used in circus performances, such as juggling, acrobatics, and clowning."
+Cloud computing,"Storing, managing, and processing data and applications over the internet instead of on local servers or personal devices."
+Clustering algorithms,Grouping data points into clusters based on similarity or proximity.
+Cocktail mixology,The art of creating and mixing cocktails.
+Coding,"The process of designing, writing, testing, and maintaining source code for computer programs."
+Collaborative filtering,Recommending items or products based on user preferences or behavior.
+Comic book illustration,The art of creating visual narratives for comic books or graphic novels.
+Compiler design,Creating software that translates code written in one programming language into another.
+Compliance management,Ensuring that database systems adhere to regulatory requirements and industry standards.
+Computer networking,The practice of connecting computers and other devices to share resources and communicate with each other.
+Containerization,Packaging software applications and their dependencies into standardized units for easier deployment and scalability.
+Content-based filtering,Recommending items similar to those a user has liked or interacted with in the past.
+Continuous integration/Continuous deployment (CI/CD),Practices for automating the process of integrating code changes into a shared repository and deploying them to production.
+Cooking,"The practice or skill of preparing food by combining, mixing, and heating ingredients."
+Cpp,"C++ is a high-level, general-purpose programming language"
+Creative writing,"The art of composing fictional stories, poems, or essays."
+Cryptocurrency development,Creating digital currencies and blockchain-based financial systems.
+Cryptography,The science of encoding and decoding secret messages.
+Cybersecurity,Protecting computer systems and networks from digital attacks or unauthorized access.
+Cybersecurity,"Protecting computer systems, networks, and data from digital threats and attacks."
+Dancing,"The art of moving rhythmically to music, typically following a set sequence of steps."
+Darts,A game in which small missiles are thrown at a circular target (dartboard) fixed to a wall.
+Data analytics,"Analyzing data to uncover patterns, trends, and insights that can inform business decisions."
+Data encryption,Protecting sensitive data by encoding it so that only authorized users can access it.
+Data governance,Establishing policies and procedures for managing and protecting data assets across an organization.
+Data integration,Combining data from multiple sources to provide a unified view for analysis and reporting.
+Data masking,Concealing sensitive data by replacing it with fictional or anonymized values.
+Data mining,"Extracting patterns and knowledge from large datasets using statistical, mathematical, or machine learning techniques."
+Data modeling,Designing and structuring databases to represent real-world entities and relationships.
+Data preprocessing,"Cleaning, transforming, and preparing raw data for analysis or modeling."
+Data quality management,"Ensuring the accuracy, completeness, and consistency of data through validation, cleansing, and enrichment processes."
+Data science,"The interdisciplinary field that uses scientific methods, algorithms, and systems to extract knowledge and insights from data."
+Data visualization,Creating visual representations of data to facilitate analysis and decision-making.
+Data warehousing,Designing and implementing data storage systems optimized for querying and analysis.
+Database indexing,Optimizing database performance by creating and managing indexes.
+Database management,"Storing, organizing, and managing data in structured formats using database management systems (DBMS)."
+Database migration,Transferring data and schemas between different database management systems.
+Database replication,Duplicating and distributing data across multiple database servers for redundancy and scalability.
+Database sharding,"Partitioning large databases into smaller, more manageable parts for improved performance."
+Decision trees,Building decision trees to model decisions and outcomes based on input features.
+Deep learning,A subset of machine learning that uses artificial neural networks to model and interpret complex data.
+Deep learning frameworks,"Using frameworks like TensorFlow, PyTorch, or Keras to build and train deep neural networks."
+Denormalization,Intentionally adding redundancy to a database for performance or other reasons.
+DevOps,A set of practices that combines software development (Dev) and IT operations (Ops) to shorten the systems development life cycle.
+Dimensionality reduction,Reducing the number of features or variables in a dataset while preserving important information.
+Disaster recovery planning,Developing plans and procedures to recover data and resume operations in the event of a catastrophic failure.
+Distributed systems,Systems composed of multiple autonomous computers that communicate and coordinate with each other to achieve a common goal.
+Diving,"The sport or activity of plunging into water, especially from a diving board."
+Docker,"A platform for developing, shipping, and running applications in containers."
+Dog training,"Teaching dogs obedience, tricks, or specific tasks."
+Drawing,The skill of making marks on a surface to create images or designs.
+"ETL (Extract, Transform, Load) processes","Extracting data from various sources, transforming it, and loading it into a data warehouse."
+Elasticsearch,"A distributed search and analytics engine used for full-text search, log analytics, and real-time data analysis."
+Emotion recognition,Detecting and classifying emotions expressed in speech or text.
+Entity-relationship diagrams (ERDs),"Visual representations of database structures showing entities, attributes, and relationships."
+Escape room solving,Working as a team to solve puzzles and find clues to escape from a locked room.
+Experimental design,Planning and conducting experiments to test hypotheses and make inferences about cause and effect.
+Exploratory data analysis (EDA),"Analyzing and visualizing data to understand its structure, patterns, and relationships."
+FP-growth algorithm,Finding frequent patterns using a prefix tree structure to mine association rules.
+Fashion design,The art of creating clothing and accessories.
+Feature engineering,Creating new features or transforming existing ones to improve the performance of machine learning models.
+Fire dancing,"Performing dances with objects on fire, such as poi or staffs."
+Fishing,"The activity of catching fish, typically for sport or food."
+Floral arrangement,The art of creating beautiful flower compositions or bouquets.
+Football (Soccer),A team sport played with a spherical ball between two teams of eleven players.
+Foraging,Gathering wild plants or fungi for food or medicinal purposes.
+Frontend development,"Creating the user interface and experience of web applications using HTML, CSS, and JavaScript."
+Functional programming,A programming paradigm that treats computation as the evaluation of mathematical functions and avoids changing state and mutable data.
+Furniture restoration,Repairing and refurbishing old or damaged furniture to restore its original condition.
+Game development,Creating video games for various platforms using programming languages and game engines.
+Genealogy research,Tracing one's ancestry or family history through historical records.
+GitHub,A platform for hosting and collaborating on code repositories using Git version control.
+Glassblowing,The art of shaping molten glass by blowing air into it through a tube.
+Gold panning,Searching for gold by manually sifting through gravel or sediment in rivers or streams.
+Google Cloud Platform (GCP),"A suite of cloud computing services offered by Google, including computing, storage, databases, and machine learning."
+Gradient boosting,Building additive models by combining weak learners to improve predictive accuracy.
+GraphQL,A query language for APIs and a runtime for executing queries against data sources.
+Graphic design,"The art of visual communication through the use of typography, photography, and illustration."
+Guitar,"A musical instrument with strings, typically played by strumming or plucking.HTML/CSS,Markup and styling languages used for creating and designing web pages."
+Hadoop,An open-source software framework for distributed storage and processing of large datasets on clusters of commodity hardware.
+Hand-lettering,The art of drawing decorative letters by hand.
+Handball,A team sport in which two teams of seven players each pass a ball using their hands with the aim of throwing it into the goal of the other team.
+Herbalism,The study and practice of using plants for medicinal or therapeutic purposes.
+Hierarchical clustering,Building a hierarchy of clusters by recursively merging or splitting clusters based on similarity.
+Hiking,"The activity of walking for long distances, especially across country or in natural surroundings."
+Horse training,"Training horses for riding, driving, or performing in equestrian competitions."
+Horseback riding,"The activity or sport of riding a horse, typically with the aim of racing or jumping over obstacles."
+Hot air ballooning,Flying in a large balloon filled with hot air for recreational or sport purposes.
+Hybrid recommender systems,Combining collaborative and content-based filtering techniques to provide personalized recommendations.
+Hydroponics,"Growing plants without soil, using nutrient-rich water solutions instead."
+Hyperparameter tuning,Optimizing the parameters of machine learning algorithms to achieve the best performance.
+Hypothesis testing,Testing statistical hypotheses to determine whether observed differences or relationships are statistically significant.
+Ice skating,The act of moving on ice using ice skates.
+Internet of Things (IoT),The network of interconnected devices and sensors that can communicate and exchange data over the internet.
+Java,"A popular object-oriented programming language used for developing desktop, web, and mobile applications."
+"JavaScript frameworks (e.g., React, Angular, Vue.js)",Libraries and frameworks for building dynamic and interactive user interfaces for web applications.
+Juggling,The skill of keeping several objects in motion in the air by continuously tossing and catching them.
+K-means clustering,Partitioning data into k clusters by minimizing the within-cluster sum of squares.
+K-nearest neighbors (KNN),Building classifiers based on the similarity of feature vectors to k nearest neighbors in training data.
+Karate,"A martial art developed in Japan that emphasizes striking techniques using the hands, feet, and other body parts."
+Knitting,The craft or skill of creating fabric by interlocking loops of yarn with needles.
+Kubernetes,"An open-source platform for automating deployment, scaling, and management of containerized applications."
+Landscape photography,The art of capturing images of natural scenery.
+Languages,"The ability to speak, understand, read, and write in multiple languages."
+Languages (Foreign),"The ability to speak, understand, read, and write in languages other than one's native language."
+Linear regression,Modeling the relationship between dependent and independent variables using a linear equation.
+Logistic regression,Modeling the probability of a binary outcome using a logistic function.
+Machine learning,A subset of artificial intelligence that enables systems to learn and improve from experience without being explicitly programmed.
+Machine learning algorithms,"Implementing algorithms and models for tasks like classification, regression, clustering, and recommendation."
+Machine translation,Translating text from one language to another using machine learning techniques.
+Magic tricks,The skill of performing illusions and sleight of hand to entertain an audience.
+Makeup artistry,The skill of applying cosmetics to enhance or alter appearance.
+Master data management (MDM),"Managing and maintaining a single, consistent view of master data entities across an organization."
+Meditation,"The practice of training the mind to achieve a state of consciousness for relaxation, mindfulness, or spiritual purposes."
+Microservices architecture,A software architecture pattern in which applications are composed of loosely coupled and independently deployable services.
+Mobile app development,Creating applications for mobile devices such as smartphones and tablets.
+Model deployment,Deploying trained machine learning models into production environments for real-world use.
+Model evaluation and validation,"Assessing the performance and reliability of machine learning models using techniques like cross-validation and metrics like precision, recall, and F1 score."
+Model monitoring and maintenance,Monitoring the performance of deployed machine learning models and updating them as needed to maintain accuracy and reliability.
+Monte Carlo simulation,Generating random samples to approximate the behavior of complex systems or processes.
+Mountain biking,"The sport of riding bicycles off-road, often over rough terrain."
+Music production,"The process of creating, recording, mixing, and mastering music."
+Naive Bayes,Building classifiers based on Bayes' theorem and the assumption of independence between features.
+Named entity recognition (NER),"Identifying and classifying named entities like people, organizations, or locations in text."
+Natural language processing (NLP),"The ability of computers to understand, interpret, and generate human language."
+Natural language processing (NLP),Analyzing and generating human language data using computational techniques.
+Natural language understanding (NLU),Extracting structured data from unstructured text using techniques like parsing and entity recognition.
+Negotiation,The ability to reach agreements or compromises through discussion and compromise.
+Network security,"Protecting networks and data from unauthorized access, misuse, or disruption."
+Networking,The process of connecting computers and other devices to share resources and communicate with each other.
+Neural networks,Building artificial neural networks with layers of interconnected nodes to solve complex problems.
+NoSQL databases,Working with non-relational databases like MongoDB or Cassandra.
+"NoSQL databases (e.g., MongoDB, Cassandra, Redis)",Databases that use non-relational data models and are optimized for specific use cases.
+Node.js,A JavaScript runtime environment that allows developers to run JavaScript code outside of a web browser.
+Normalization,"Organizing data in a database to minimize redundancy and dependency.OLAP (Online Analytical Processing),Analyzing multidimensional data interactively from multiple perspectives."
+Object-oriented programming (OOP),"A programming paradigm based on the concept of objects, which can contain data and code."
+Oil painting,"The technique of painting with pigments mixed with a drying oil, typically linseed oil."
+"Operating systems (e.g., Linux, Windows, macOS)",Software that manages computer hardware and provides services for computer programs.
+Origami,The Japanese art of folding paper into decorative shapes and figures.
+Origami,The art of folding paper into various shapes and designs.
+Painting,The skill of applying pigments to a surface to create artwork.
+Parallel computing,Performing multiple computations simultaneously to improve performance and efficiency.
+Parkour,"A physical discipline that involves moving quickly and efficiently through urban environments, often using acrobatic techniques."
+Penetration testing,Assessing the security of computer systems and networks by simulating cyber attacks.
+Performance tuning,"Optimizing database performance through query optimization, index tuning, and other techniques."
+Phonetics,"Studying the sounds of human speech and their production, transmission, and reception."
+Photography,The art or practice of creating images by recording light on a light-sensitive surface.
+Piano,A musical instrument played by pressing keys to produce sounds.
+Piano,A musical instrument with a keyboard used for playing melodies and harmonies.
+Pottery,"The craft of making objects out of clay, typically by hand or on a potter's wheel."
+Predictive analytics,Using statistical algorithms and machine learning techniques to predict future outcomes based on historical data.
+Prescriptive analytics,Providing recommendations or actions based on analysis of data and business rules.
+Principal component analysis (PCA),Finding the orthogonal axes that maximize variance in high-dimensional data.
+Programming,"The process of writing instructions for computers to execute, often using programming languages."
+Public speaking,The skill of delivering speeches or presentations effectively to an audience.
+Public speaking,The ability to address an audience confidently and effectively.
+Python,"A versatile and beginner-friendly programming language used for web development, data analysis, and automation."
+Quilting,The craft of sewing together layers of fabric to create a padded material.
+Quilting,The craft of sewing together layers of fabric to create a quilt.
+Random forests,Building ensembles of decision trees to improve predictive accuracy and robustness.
+React Native,A framework for building cross-platform mobile applications using React and JavaScript.
+Real-time data processing,"Processing and analyzing data as soon as it is generated, often using streaming technologies like Apache Kafka or Apache Flink."
+Reinforcement learning,Training machine learning models to make decisions through trial and error.
+Responsive web design,Designing websites that adapt to different screen sizes and devices for optimal viewing and interaction.
+Reverse engineering,Analyzing and understanding the structure and behavior of software systems to recreate or modify them.
+Robotics,"Designing, building, and operating robots to perform tasks autonomously or with human assistance."
+Rock climbing,"The sport or activity of climbing rock faces or walls, often using ropes and safety equipment."
+Rock climbing,"The sport or activity of climbing rock faces, especially with the use of ropes and other equipment."
+Ruby on Rails,A web application framework written in Ruby that follows the model-view-controller (MVC) pattern.
+SQL,Structured Query Language used for managing and manipulating relational databases.
+SQL database administration,Managing and maintaining relational databases using SQL.
+SQL injection prevention,Protecting against SQL injection attacks by validating and sanitizing user input.
+Scalability,The ability of a system to handle growing amounts of work or requests by adding resources or adapting its architecture.
+Sculpting,"The art of shaping and carving materials such as clay, wood, or stone to create three-dimensional artwork."
+Search engine optimization (SEO),Techniques for improving the visibility and ranking of websites in search engine results.
+Security auditing,Assessing and evaluating database security controls to ensure compliance with policies and regulations.
+Sentiment analysis,Analyzing text data to determine the sentiment or emotional tone expressed.
+Serverless computing,A cloud computing model in which the cloud provider dynamically manages the allocation of resources and billing based on usage.
+Singing,The act of producing musical sounds with the voice.
+Singing,The act of producing musical sounds with the voice.
+Singular value decomposition (SVD),Decomposing a matrix into singular vectors and values to reduce dimensionality.
+Skateboarding,Riding and performing tricks on a skateboard.
+Sketching,The act of making a rough drawing or outline.
+Skydiving,The sport of jumping from an aircraft and performing acrobatic maneuvers during freefall.
+Snorkeling,Swimming underwater while using a breathing tube and mask.
+Snowboarding,The sport of descending snow-covered slopes on a snowboard.
+Soccer,A team sport played with a spherical ball on a rectangular field.
+Software architecture,The high-level structure of software systems and the principles and practices for designing and building them.
+Software development,"The process of designing, creating, and maintaining software applications."
+Software engineering,"The application of engineering principles and practices to the design, development, testing, and maintenance of software systems."
+Software testing,Evaluating software to ensure that it meets specified requirements and functions correctly.
+Speaker diarization,Identifying and distinguishing between different speakers in an audio recording.
+Speech recognition,Converting spoken language into text using machine learning algorithms.
+Speech synthesis,Generating artificial speech from text using machine learning models.
+Spring Framework,An open-source framework for building Java-based enterprise applications.
+Stargazing,"The act of observing celestial objects in the night sky, such as stars, planets, and galaxies."
+Statistical analysis,Applying statistical techniques to analyze data and draw meaningful conclusions.
+Stored procedures,Writing and executing precompiled SQL code stored in the database for improved performance and security.
+Supervised learning,Training machine learning models using labeled data to make predictions or decisions.
+Support vector machines (SVM),Building binary classifiers by finding the hyperplane that best separates classes in feature space.
+Surfing,"Riding waves on a surfboard, typically in the ocean."
+Survival analysis,Analyzing time-to-event data to model and predict survival probabilities over time.
+Swift programming,"A programming language developed by Apple for building iOS, macOS, watchOS, and tvOS applications."
+Swimming,The ability to move through water by propelling oneself with the limbs.
+Swimming,The sport or activity of moving through water using one's arms and legs.
+Systems design,"The process of defining the architecture, components, and interactions of a system to satisfy specified requirements."
+Table tennis (Ping Pong),A sport in which two or four players hit a lightweight ball back and forth across a table using small paddles.
+Tennis,A racket sport played individually against a single opponent or between two teams of two players each.
+Tennis,A racket sport played on a rectangular court with a net in the middle.
+Text mining,"Extracting useful information from unstructured text data, such as documents or social media posts."
+Time management,The skill of effectively organizing and prioritizing tasks to maximize productivity.
+Time series analysis,Analyzing and forecasting time-series data to understand patterns and make predictions.
+Transactions,Ensuring data integrity and consistency by grouping SQL statements into atomic units of work.
+Triggers,Defining actions to be automatically performed in response to certain database events.
+UI/UX design,Designing the user interface and experience of digital products to optimize usability and satisfaction.
+Unicycling,"Riding a unicycle, a single-wheeled vehicle."
+Unsupervised learning,Training machine learning models on unlabeled data to discover patterns or structures.
+Urban gardening,"The practice of growing plants in urban environments, often in limited space."
+"Version control (e.g., Git, SVN)",Tracking and managing changes to source code and other files over time.
+Video editing,The process of manipulating and rearranging video footage to create a final video product.
+Video production,"The process of creating video content, including filming, editing, and post-production."
+Views,Creating virtual tables based on the result of a SQL query for easier data retrieval and manipulation.
+Violin,"A musical instrument with four strings, typically played with a bow."
+Violin,A string instrument played with a bow.
+Virtual reality development,Creating immersive digital experiences using virtual reality technology.
+Virtualization,"Creating virtual versions of computing resources, such as servers or storage devices, to improve efficiency and flexibility."
+Volunteering,Offering one's time and services for charitable or community work without payment.
+Web application security,"Protecting web applications from security threats, vulnerabilities, and attacks."
+Web development,The creation and maintenance of websites for the internet or an intranet.
+Web development,Building and maintaining websites and web applications.
+"Web development frameworks (e.g., Django, Flask, Ruby on Rails)",Libraries and frameworks for building web applications and APIs.
+Welding,The process of joining metals together by heating and melting them.
+Whittling,The craft of carving shapes out of wood using a knife.
+Wine tasting,"The sensory evaluation of wine to discern its flavors, aromas, and characteristics."
+Woodworking,"The skill of making objects, structures, or artworks from wood."
+Woodworking,"The craft of making objects out of wood, such as furniture and cabinets."
+Writing poetry,"The art of expressing thoughts, emotions, and ideas through verse."
+Yoga,"A physical, mental, and spiritual practice that originated in ancient India."
+Yoga,"A group of physical, mental, and spiritual practices that originated in ancient India."
+Zumba,A fitness program that combines Latin and international music with dance moves.
+Zumba,A fitness program that combines Latin and international music with dance movements.
