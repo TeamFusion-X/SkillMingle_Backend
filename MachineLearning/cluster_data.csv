@@ -1,0 +1,270 @@
+Word,Cluster
+3d printing,18
+a/b testing,60
+acid properties,52
+acapella singing,75
+access control,46
+acrobatics,69
+acting,14
+adobe photoshop,37
+agile methodology,47
+algorithm design,18
+android app development,33
+animation,16
+app development,32
+apriori algorithm,63
+archery,7
+artificial intelligence,53
+association rule learning,63
+astronomy,56
+autoencoders,42
+automated testing,46
+automatic speech recognition (asr),25
+backup and recovery,91
+baking,17
+barista skills,14
+basketball,1
+batch processing,61
+bayesian statistics,60
+beekeeping,20
+big data analytics,80
+blacksmithing,9
+blockchain development,51
+bonsai cultivation,14
+business intelligence tools,91
+c++,38
+cake decorating,22
+calligraphy,14
+card games,57
+carp fishing,69
+carpentry,11
+caving,70
+change management,86
+chess,2
+chessboxing,69
+circus skills,57
+cloud computing,87
+clustering algorithms,39
+cocktail mixology,15
+coding,30
+collaborative filtering,59
+comic book illustration,14
+compiler design,67
+compliance management,52
+computer networking,5
+containerization,37
+content-based filtering,59
+continuous integration/continuous deployment (ci/cd),19
+cooking,17
+cpp,38
+creative writing,14
+cryptocurrency development,51
+cryptography,72
+cybersecurity,77
+dancing,14
+darts,66
+data analytics,80
+data encryption,41
+data governance,85
+data integration,90
+data masking,41
+data mining,27
+data modeling,50
+data preprocessing,91
+data quality management,52
+data science,80
+data visualization,89
+data warehousing,91
+database indexing,84
+database management,86
+database migration,86
+database replication,86
+database sharding,49
+decision trees,40
+deep learning,42
+deep learning frameworks,42
+denormalization,84
+devops,47
+dimensionality reduction,73
+disaster recovery planning,72
+distributed systems,5
+diving,7
+docker,35
+dog training,71
+drawing,12
+"etl (extract, transform, load) processes",41
+elasticsearch,92
+emotion recognition,62
+entity-relationship diagrams (erds),89
+escape room solving,70
+experimental design,46
+exploratory data analysis (eda),81
+fp-growth algorithm,63
+fashion design,15
+feature engineering,24
+fire dancing,57
+fishing,7
+floral arrangement,14
+football (soccer),2
+foraging,58
+frontend development,29
+functional programming,88
+furniture restoration,72
+game development,33
+genealogy research,76
+github,35
+glassblowing,14
+gold panning,76
+google cloud platform (gcp),44
+gradient boosting,43
+graphql,93
+graphic design,14
+guitar,4
+hadoop,34
+hand-lettering,21
+handball,2
+herbalism,58
+hierarchical clustering,39
+hiking,7
+horse training,68
+horseback riding,7
+hot air ballooning,74
+hybrid recommender systems,90
+hydroponics,75
+hyperparameter tuning,24
+hypothesis testing,60
+ice skating,73
+internet of things (iot),87
+java,36
+"javascript frameworks (e.g., react, angular, vue.js)",31
+juggling,22
+k-means clustering,49
+k-nearest neighbors (knn),40
+karate,65
+knitting,22
+kubernetes,34
+landscape photography,16
+languages,79
+languages (foreign),79
+linear regression,73
+logistic regression,73
+machine learning,70
+machine learning algorithms,91
+machine translation,25
+magic tricks,10
+makeup artistry,12
+master data management (mdm),85
+meditation,20
+microservices architecture,66
+mobile app development,32
+model deployment,50
+model evaluation and validation,24
+model monitoring and maintenance,24
+monte carlo simulation,53
+mountain biking,74
+music production,15
+naive bayes,40
+named entity recognition (ner),62
+natural language processing (nlp),27
+natural language understanding (nlu),26
+negotiation,76
+network security,77
+networking,5
+neural networks,42
+nosql databases,83
+"nosql databases (e.g., mongodb, cassandra, redis)",83
+node.js,67
+normalization,86
+object-oriented programming (oop),88
+oil painting,74
+"operating systems (e.g., linux, windows, macos)",37
+origami,13
+painting,12
+parallel computing,45
+parkour,65
+penetration testing,53
+performance tuning,84
+phonetics,72
+photography,16
+piano,4
+pottery,9
+predictive analytics,27
+prescriptive analytics,88
+principal component analysis (pca),64
+programming,33
+public speaking,10
+python,36
+quilting,8
+random forests,43
+react native,35
+real-time data processing,61
+reinforcement learning,23
+responsive web design,50
+reverse engineering,28
+robotics,71
+rock climbing,6
+ruby on rails,67
+sql,83
+sql database administration,83
+sql injection prevention,78
+scalability,20
+sculpting,9
+search engine optimization (seo),92
+security auditing,48
+sentiment analysis,60
+serverless computing,44
+singing,3
+singular value decomposition (svd),49
+skateboarding,68
+sketching,21
+skydiving,74
+snorkeling,73
+snowboarding,74
+soccer,1
+software architecture,28
+software development,30
+software engineering,28
+software testing,48
+speaker diarization,62
+speech recognition,25
+speech synthesis,25
+spring framework,34
+stargazing,56
+statistical analysis,27
+stored procedures,93
+supervised learning,23
+support vector machines (svm),64
+surfing,68
+survival analysis,82
+swift programming,36
+swimming,7
+systems design,20
+table tennis (ping pong),2
+tennis,1
+text mining,26
+time management,10
+time series analysis,81
+transactions,52
+triggers,46
+ui/ux design,29
+unicycling,68
+unsupervised learning,23
+urban gardening,65
+"version control (e.g., git, svn)",82
+video editing,19
+video production,19
+views,88
+violin,4
+virtual reality development,51
+virtualization,45
+volunteering,75
+web application security,78
+web development,31
+"web development frameworks (e.g., django, flask, ruby on rails)",31
+welding,19
+whittling,9
+wine tasting,72
+woodworking,9
+writing poetry,14
+yoga,55
+zumba,54

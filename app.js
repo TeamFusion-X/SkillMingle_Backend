@@ -18,6 +18,7 @@ import { router as requestRouter } from "./routes/requestRoutes.js";
 import { router as chatRouter } from "./routes/chatRoutes.js";
 import { router as reviewRouter } from "./routes/reviewRoutes.js";
 import { router as searchRouter } from "./routes/searchRoutes.js";
+import { router as suggestionsRouter } from "./routes/suggestionsRoutes.js";
 
 export const app = express();
 
@@ -53,6 +54,7 @@ app.use("/api/requests", requestRouter);
 app.use("/api/chats", chatRouter);
 app.use("/api/reviews", reviewRouter);
 app.use("/api/search", searchRouter);
+app.use("/api/suggestions", suggestionsRouter);
 
 app.all("*", (req, res, next) => {
 	next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));
