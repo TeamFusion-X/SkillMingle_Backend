@@ -10,7 +10,7 @@ const skillsSchema = new mongoose.Schema({
     usersWillingToTeach: {
         type: [{type:mongoose.Schema.Types.ObjectId, ref: "User"}]
     }
-})
+});
 
 
 export const Skill = mongoose.model('Skill', skillsSchema);

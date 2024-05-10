@@ -3,7 +3,6 @@ import {Chat} from './../models/chatModel.js';
 import {catchAsync} from './../utils/catchAsync.js';
 
 export const getTeachingChats = catchAsync(async (req, res, next) => {
-    res.status(200)
     const user = await User.findById(req.user.id);
 
     const chatPromise = user.teachingConversations.map(async chatID => {
