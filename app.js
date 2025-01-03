@@ -5,6 +5,7 @@ import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import mongoSanitize from "express-mongo-sanitize";
 import dotenv from "dotenv";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 
 import { AppError } from "./utils/appError.js";
@@ -30,6 +31,14 @@ app.use(helmet());
 if (process.env.NODE_ENV === "development") {
 	app.use(morgan("dev"));
 }
+
+const corsOptions = {
+  origin: ['http://127.0.0.1:5173', 'http://localhost:5173'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
 
 // Limit requests from same IP
 const limiter = rateLimit({

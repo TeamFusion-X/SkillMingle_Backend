@@ -59,7 +59,7 @@ export const signup = catchAsync(async (req, res, next) => {
 		}]
 	};
 
-	// await sendEmail(options);
+	await sendEmail(options);
 
 	createSendToken(newUser, 201, res);
 });
@@ -155,9 +155,8 @@ export const forgotPassword = catchAsync(async (req, res, next) => {
 
 	// 3) Send it to user's email
 	try {
-		const resetURL = `${req.protocol}://${req.get(
-			"host"
-		)}/api/v1/users/resetPassword/${resetToken}`;
+
+		const resetURL = `${req.protocol}://${req.get('host')}/resetPassword/${resetToken}`;
 		const options = {
 			email: req.body.email,
 			subject: "Password Reset",
