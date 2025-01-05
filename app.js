@@ -35,7 +35,8 @@ if (process.env.NODE_ENV === "development") {
 const corsOptions = {
   origin: ['http://127.0.0.1:5173', 'http://localhost:5173'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 };
 
 app.use(cors(corsOptions));
@@ -57,6 +58,8 @@ app.use(express.json({ limit: "10kb" }));
 
 // Data sanitization against NoSQL query injection
 app.use(mongoSanitize());
+
+app.use(cookieParser());
 
 // Routes
 app.use("/api/users", userRouter);
