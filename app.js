@@ -14,6 +14,7 @@ import { globalErrorHandler } from "./controllers/errorController.js";
 dotenv.config({ path: "./config.env" });
 
 // Routes
+import { router as helloRouter } from "./routes/helloRoutes.js"
 import { router as userRouter } from "./routes/userRoutes.js";
 import { router as requestRouter } from "./routes/requestRoutes.js";
 import { router as chatRouter } from "./routes/chatRoutes.js";
@@ -62,6 +63,7 @@ app.use(mongoSanitize());
 app.use(cookieParser());
 
 // Routes
+app.use("/api/hello", helloRouter)
 app.use("/api/users", userRouter);
 app.use("/api/requests", requestRouter);
 app.use("/api/chats", chatRouter);
