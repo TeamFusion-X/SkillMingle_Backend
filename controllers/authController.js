@@ -58,7 +58,7 @@ export const signup = catchAsync(async (req, res, next) => {
 		}]
 	};
 
-	await sendEmail(options);
+	if (process.env.NODE_ENV === 'production') await sendEmail(options);
 
 	createSendToken(newUser, 201, res);
 });

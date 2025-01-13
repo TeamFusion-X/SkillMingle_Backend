@@ -6,7 +6,7 @@ process.on("uncaughtException", (err) => {
 	process.exit(1);
 });
 
-const DB = process.env.DATABASE_LOCAL;
+let DB = process.env.DATABASE_LOCAL;
 if (process.env.NODE_ENV == "production"){
 	DB = process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE_PASSWORD);
 }
