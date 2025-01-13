@@ -1,8 +1,5 @@
 import mongoose from 'mongoose';
 
-import {Skill} from './skillModel.js';
-import {User} from './userModel.js'
-
 const requestSchema = new mongoose.Schema(
     {
         skill: {

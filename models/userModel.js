@@ -5,7 +5,6 @@ import crypto from 'crypto';
 import bcrypt from 'bcryptjs';
 
 import {Skill} from './skillModel.js';
-import {Request} from './requestModel.js';
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -24,7 +23,8 @@ const userSchema = new mongoose.Schema({
         validate: [validator.isEmail, 'Please provide a valid email']
     },
     bio: {
-        type: String
+        type: String,
+        default: "No bio provided"
     },
     displayPicture : {
         type : String,

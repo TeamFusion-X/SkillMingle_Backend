@@ -1,7 +1,6 @@
 import { User } from "./../models/userModel.js";
 import { Review } from "./../models/reviewModel.js"
 import { catchAsync } from "./../utils/catchAsync.js";
-import { AppError } from "./../utils/appError.js";
 
 export const giveRating = catchAsync(async (req, res, next) => {
     const givenRating = Number(req.body.rating);

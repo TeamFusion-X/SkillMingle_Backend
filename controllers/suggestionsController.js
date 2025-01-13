@@ -1,5 +1,4 @@
 import {User} from '../models/userModel.js';
-import {Skill} from '../models/skillModel.js';
 import {catchAsync} from '../utils/catchAsync.js';
 import { spawn }    from 'child_process';
 
