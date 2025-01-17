@@ -34,7 +34,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 const corsOptions = {
-  origin: ['http://127.0.0.1:5173', 'http://localhost:5173'],
+  origin: ['http://127.0.0.1:5173', 'http://localhost:5173', 'https://skill-mingle-frontend-eight.vercel.app/'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
