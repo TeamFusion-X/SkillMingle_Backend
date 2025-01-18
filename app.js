@@ -33,6 +33,10 @@ if (process.env.NODE_ENV === "production") {
 	app.use(morgan("dev"));
 }
 
+app.use((req, res, next) => {
+	console.log('Request Origin:', req.headers.origin);
+	next();
+});
 const corsOptions = {
   origin: ['http://127.0.0.1:5173', 'http://localhost:5173', 'https://skill-mingle-frontend-eight.vercel.app/'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
@@ -61,12 +65,6 @@ app.use(express.json({ limit: "10kb" }));
 app.use(mongoSanitize());
 
 app.use(cookieParser());
-
-app.use((req, res, next) => {
-	console.log('Request Origin:', req.headers.origin);
-	next();
-});
-  
 
 // Routes
 app.use("/api/hello", helloRouter)
