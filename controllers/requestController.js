@@ -29,22 +29,36 @@ export const getRequests = catchAsync(async (req, res, next) => {
 });
 
 export const sendRequest = catchAsync(async (req, res, next) => {
-	// console.log(req.params);
-
 	const sentFrom = await User.findById(req.user.id);
 
+	const existingRequest = await Request.findOne({
+		skill: req.params.skill,
+		sender: sentFrom._id
+	});
+
+	if (existingRequest) {
+		return res.status(400).json({
+			status: "fail",
+			message: "You have already sent a request for this skill."
+		});
+	}
+
 	const newRequest = await Request.create({
-		skill : req.params.skill,
-		sender : sentFrom._id
-	})
-	
-	await User.updateOne({username : req.params.username}, {$push : {requestsReceived : newRequest}});
-	
+		skill: req.params.skill,
+		sender: sentFrom._id
+	});
+
+	await User.updateOne(
+		{ username: req.params.username },
+		{ $push: { requestsReceived: newRequest } }
+	);
+
 	res.status(200).json({
-		status : "success",
-		message : "Request Sent Successfully"
+		status: "success",
+		message: "Request Sent Successfully"
 	});
 });
+
 
 export const takeAction = catchAsync(async (req, res, next) => {
 	req.request = await Request.findById(req.params.requestID);

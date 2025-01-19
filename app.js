@@ -37,10 +37,8 @@ const corsOptions = {
   
 app.use(cors(corsOptions));
   
-// Development logging
-if (process.env.NODE_ENV === "production") {
-	app.use(morgan("dev"));
-}
+// Logging
+app.use(morgan((process.env.NODE_ENV === 'development') ? "dev" : "short"));
 
 // Limit requests from same IP
 const limiter = rateLimit({

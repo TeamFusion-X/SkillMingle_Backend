@@ -84,27 +84,53 @@ userSchema.pre('save', async function(next){
     next();
 });
 
-userSchema.pre(['updateOne', 'findByIdAndUpdate', 'findOneAndUpdate'], async function(next){
-        const skillsToTeach = this._update.skillsToTeach;
+userSchema.pre(['updateOne', 'findByIdAndUpdate', 'findOneAndUpdate'], async function (next) {
+    const newSkillsToTeach = this._update.skillsToTeach; // The updated skills array
+    if (!newSkillsToTeach) return next(); // Skip if no skills are being updated
 
-        if (skillsToTeach){
-            //Search Skill Objects and their object Id
-            const skillPromises = skillsToTeach.map(async item => {
-                
-                let foundSkill = await Skill.findOne({ skill: item });
-                
-                if (!foundSkill) {
-                    foundSkill = await Skill.create({ skill: item });
-                }
-    
-                //Storing the user data reference in skill database
-                const userId = this.getFilter('_id');
+    const userId = this.getFilter('_id')._id; 
+
+    const user = await this.model.findById(userId).select('skillsToTeach');
+    const currentSkillsToTeach = user.skillsToTeach || [];
+
+    const removedSkills = currentSkillsToTeach.filter(skill => !newSkillsToTeach.includes(skill));
+    const addedSkills = newSkillsToTeach.filter(skill => !currentSkillsToTeach.includes(skill));
+
+    // Handle removed skills: Remove the user reference
+    for (const skill of removedSkills) {
+        const foundSkill = await Skill.findOne({ skill });
+        if (foundSkill) {
+            // Remove the user ID from the 'usersWillingToTeach' array
+            foundSkill.usersWillingToTeach = foundSkill.usersWillingToTeach.filter(id => !id.equals(userId));
+
+            // If no users are left, optionally delete the skill
+            if (foundSkill.usersWillingToTeach.length === 0) {
+                await foundSkill.deleteOne();
+            } 
+            else {
+                await foundSkill.save();
+            }
+        }
+    }
+
+    // Handle added skills: Add the user reference (ensuring no duplicates)
+    for (const skill of addedSkills) {
+        let foundSkill = await Skill.findOne({ skill });
+        if (!foundSkill) {
+            // Create new skill if it doesn't exist
+            foundSkill = await Skill.create({ skill, usersWillingToTeach: [userId] });
+        } 
+        else {
+            // Ensure no duplicate user ID is added
+            if (!foundSkill.usersWillingToTeach.some(id => id.equals(userId))) {
                 foundSkill.usersWillingToTeach.push(userId);
                 await foundSkill.save();
-            });
+            }
         }
+    }
 
-})
+    next();
+});
 
 userSchema.methods.correctPassword = async function(candidatePassword, userPassword){
     return await bcrypt.compare(candidatePassword, userPassword);
