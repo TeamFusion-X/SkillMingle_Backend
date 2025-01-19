@@ -28,19 +28,19 @@ export const app = express();
 // Set security HTTP headers
 app.use(helmet());
 
+const corsOptions = {
+	origin: ['http://127.0.0.1:5173', 'http://localhost:5173', 'https://skill-mingle-frontend-eight.vercel.app'],
+	methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+	allowedHeaders: ['Content-Type', 'Authorization'],
+	credentials: true,
+};
+  
+app.use(cors(corsOptions));
+  
 // Development logging
 if (process.env.NODE_ENV === "production") {
 	app.use(morgan("dev"));
 }
-
-const corsOptions = {
-  origin: ['http://127.0.0.1:5173', 'http://localhost:5173', ' https://skill-mingle-frontend-eight.vercel.app'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
-};
-
-app.use(cors(corsOptions));
 
 // Limit requests from same IP
 const limiter = rateLimit({
