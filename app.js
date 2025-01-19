@@ -48,15 +48,15 @@ const limiter = rateLimit({
 });
 app.use("/api", limiter);
 
-// Middleware to set CORP header
-app.use((req, res, next) => {
-	res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
-	next();
-});
-
 // Serving static files
 const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public'), {
+  setHeaders: (res, path) => {
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin'); 
+    res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
+    res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
+  }
+}));
 
 //Parsing to JSON
 app.use(express.json({ limit: "10kb" }));
