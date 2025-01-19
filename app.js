@@ -48,15 +48,15 @@ const limiter = rateLimit({
 });
 app.use("/api", limiter);
 
-// Serving static files
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, "public")));
-
 // Middleware to set CORP header
 app.use((req, res, next) => {
 	res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
 	next();
 });
+
+// Serving static files
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "public")));
 
 //Parsing to JSON
 app.use(express.json({ limit: "10kb" }));
