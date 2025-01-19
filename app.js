@@ -52,6 +52,12 @@ app.use("/api", limiter);
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, "public")));
 
+// Middleware to set CORP header
+app.use((req, res, next) => {
+	res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+	next();
+});
+
 //Parsing to JSON
 app.use(express.json({ limit: "10kb" }));
 
