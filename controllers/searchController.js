@@ -58,7 +58,7 @@ export const rankMatchingUsers = catchAsync(async(req, res, next) => {
 
     // Execution
     try {
-        const programPath = path.join(__dirname, 'utils', 'rankUsers.exe');
+        const programPath = path.join(__dirname, 'utils', 'rankUsers.out');
 
         let programOutput = await runCppProgram(programPath, inputData);
         programOutput = programOutput.slice(0, -1);
