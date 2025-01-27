@@ -31,11 +31,13 @@ app.use(helmet());
 const corsOptions = {
 	origin: ['http://127.0.0.1:5173', 'http://localhost:5173', 'https://skill-mingle-frontend-eight.vercel.app'],
 	methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-	allowedHeaders: ['Content-Type', 'Authorization'],
+	allowedHeaders: ['Content-Type', 'Authorization', 'X-Frontend-Host'],
 	credentials: true,
 };
   
 app.use(cors(corsOptions));
+
+app.options('*', cors(corsOptions));
   
 // Logging
 app.use(morgan((process.env.NODE_ENV === 'development') ? "dev" : "short"));
