@@ -34,36 +34,39 @@ export const rankMatchingUsers = catchAsync(async(req, res, next) => {
     let inputData = "";
 
     const user = await User.findById(req.user.id);
+    if (!user) {
+        return res.status(404).json({ status: "fail", message: "User not found" });
+    }
     
-    inputData += user.username + " ";
-    inputData += user.skillsToTeach.length + " ";
+    inputData += `${user.username} ${user.skillsToTeach.length} `;
     
-    user.skillsToTeach.forEach(element => {
-        inputData += element + " ";
+    user.skillsToTeach.forEach(skill => {
+        inputData += `${skill} `;
     });
 
     const skill = await Skill.findOne({skill : req.params.skill}).populate('usersWillingToTeach');
     
     if (!skill){
-        return next(new AppError("There is no user with this email address.", 404));
+        return next(new AppError("No skill found!.", 404));
     }
 
     const numUsers = skill.usersWillingToTeach.length;
-    inputData += numUsers + " ";
+    inputData += `${numUsers} `;
 
     skill.usersWillingToTeach.forEach(userToRank => {
         const numSkill = userToRank.skillsToLearn.length;
-        inputData += userToRank.username + " " + numSkill + " ";
+        inputData += `${userToRank.username} ${userToRank.skillsToLearn.length} `;
         
         userToRank.skillsToLearn.forEach(element => {
-            inputData += element + " ";
-        })
+            inputData += `${element} `;
+        });
     });
 
     // Execution
     try {
         const programPath = path.join(__dirname, 'utils', 'rankUsers.out');
 
+        console.log(inputData);
         let programOutput = await runCppProgram(programPath, inputData);
         programOutput = programOutput.slice(0, -1);
         console.log("Program Output: ", programOutput);
@@ -86,9 +89,12 @@ export const rankMatchingUsers = catchAsync(async(req, res, next) => {
                 
                 return {username, name, dp, rating, match};
             }
+            return null;
         });
     
-        const rankedUsersDetails = await Promise.all(rankedUsersPromise);
+        const rankedUsersDetails = await Promise.all(rankedUsersPromise).filter(
+            (user) => user !== null
+        );
 
         res.status(200).json({
             status: "success",
