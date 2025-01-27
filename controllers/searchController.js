@@ -44,9 +44,10 @@ export const rankMatchingUsers = catchAsync(async(req, res, next) => {
 
     const skill = await Skill.findOne({skill : req.params.skill}).populate('usersWillingToTeach');
     
-    if (skill){
-        
+    if (!skill){
+        return next(new AppError("There is no user with this email address.", 404));
     }
+
     const numUsers = skill.usersWillingToTeach.length;
     inputData += numUsers + " ";
 
@@ -65,9 +66,10 @@ export const rankMatchingUsers = catchAsync(async(req, res, next) => {
 
         let programOutput = await runCppProgram(programPath, inputData);
         programOutput = programOutput.slice(0, -1);
-        // console.log(programOutput);
+        console.log("Program Output: ", programOutput);
         
         const rankedUsers = programOutput.split(" ");
+        console.log("Ranked Users: ", rankedUsers);
         
         const rankedUsersPromise = rankedUsers.map(async username_match => {
             const x = username_match.split("--");
