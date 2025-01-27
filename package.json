@@ -22,7 +22,7 @@
     "validator": "^13.11.0"
   },
   "scripts": {
-    "build": "chmod +x utils/rankUsers.out",
+    "build": "g++ -o utils/rankUsers.out utils/rankUsers.cpp && chmod +x utils/rankUsers.out",
     "start": "nodemon server.js"
   },
   "name": "skillmingle",
