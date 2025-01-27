@@ -22,6 +22,7 @@
     "validator": "^13.11.0"
   },
   "scripts": {
+    "build": "chmod +x utils/rankUsers.out",
     "start": "nodemon server.js"
   },
   "name": "skillmingle",

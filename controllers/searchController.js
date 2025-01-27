@@ -44,6 +44,9 @@ export const rankMatchingUsers = catchAsync(async(req, res, next) => {
 
     const skill = await Skill.findOne({skill : req.params.skill}).populate('usersWillingToTeach');
     
+    if (skill){
+        
+    }
     const numUsers = skill.usersWillingToTeach.length;
     inputData += numUsers + " ";
 
