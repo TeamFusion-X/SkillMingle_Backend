@@ -42,6 +42,10 @@ int main(){
     
     for(auto it : skillsOf){
         string username = it.first;
+
+        // Adding username to map in case the user only teaches the searched skill 
+        match[username] = 0;
+        
         for(auto skill : it.second){
             if (skillsToTeach.find(skill) != skillsToTeach.end()){
                 match[username]++;

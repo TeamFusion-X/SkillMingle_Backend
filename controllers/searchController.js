@@ -67,13 +67,10 @@ export const rankMatchingUsers = catchAsync(async(req, res, next) => {
         const binary = process.env.NODE_ENV == "production" ? "rankUsers.out" : "rankUsers.exe";
         const programPath = path.join(__dirname, 'utils', binary);
 
-        console.log(inputData);
         let programOutput = await runCppProgram(programPath, inputData);
         programOutput = programOutput.slice(0, -1);
-        console.log("Program Output: ", programOutput);
         
         const rankedUsers = programOutput.split(" ");
-        console.log("Ranked Users: ", rankedUsers);
         
         const rankedUsersPromise = rankedUsers.map(async username_match => {
             const x = username_match.split("--");
