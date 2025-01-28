@@ -64,7 +64,8 @@ export const rankMatchingUsers = catchAsync(async(req, res, next) => {
 
     // Execution
     try {
-        const programPath = path.join(__dirname, 'utils', 'rankUsers.out');
+        const binary = process.env.NODE_ENV == "production" ? "rankUsers.out" : "rankUsers.exe";
+        const programPath = path.join(__dirname, 'utils', binary);
 
         console.log(inputData);
         let programOutput = await runCppProgram(programPath, inputData);
@@ -92,7 +93,9 @@ export const rankMatchingUsers = catchAsync(async(req, res, next) => {
             return null;
         });
     
-        const rankedUsersDetails = await Promise.all(rankedUsersPromise).filter(
+        let rankedUsersDetails = await Promise.all(rankedUsersPromise);
+
+        rankedUsersDetails = rankedUsersDetails.filter(
             (user) => user !== null
         );
 
