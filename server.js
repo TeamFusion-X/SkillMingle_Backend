@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { initializeSocket } from "./socketHandler.js";
 
 process.on("uncaughtException", (err) => {
 	console.log("Uncaught Exception! Shutting down...");
@@ -23,46 +24,7 @@ const server = app.listen(port, () => {
 	console.log(`Server running on port ${port}..`);
 });
 
-
-// ----------------------------------------------------
-// Socket 
-import {Server as socket} from 'socket.io';
-import {Message} from './models/chatModel.js';
-import {Chat} from './models/chatModel.js';
-
-const io = new socket(server);
-
-io.on('connection', (socket) => {
-    console.log('Connected...')
-
-	socket.on('join-room', (roomId) => {
-        socket.join(roomId);
-        console.log(`Socket ${socket.id} joined room ${roomId}`);
-    });
-	
-    socket.on('send-message', async(msg,room) => {
-        if(room === ""){
-			socket.broadcast.emit('receive-message', msg)
-		}
-		else{
-			const currentChat = await Chat.findById(room); // Get Current Chat
-			const currentSender = msg.name; // Get sender (To be Changed);
-			// Message 
-			const currentMessage = await Message.create({
-				sender: currentChat._id,
-				content: msg.message
-			});
-			
-			//Store Message to Chat Schema
-			currentChat.messages.push(currentMessage._id);
-			await currentChat.save();
-
-			// Send to receiver
-			socket.to(room).emit('receive-message',msg)
-		}
-
-    })
-});
+const io = initializeSocket(server);
 
 process.on("unhandledRejection", (err) => {
 	console.log("Unhandled Rejection! Shutting down..");

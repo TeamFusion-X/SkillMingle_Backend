@@ -48,16 +48,14 @@ export const getLearningChats = catchAsync(async (req, res, next) => {
     })  
 });
 
-import path from 'path';
-const __dirname = path.resolve();
-
 export const getChat = catchAsync(async (req, res, next) => {
     const chat = await Chat.findById(req.params.chatId);
-    
-    const filePath = path.join(__dirname, 'public', 'index.html');
+	console.log(chat);
 
-	
-    res.status(200).sendFile(filePath);
+    res.status(200).json({
+		status: "success",
+		chat: chat
+	})
 })
 
 export const increaseSkillPercentage = catchAsync(async (req, res, next) => {
