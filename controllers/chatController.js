@@ -67,7 +67,7 @@ export const getChat = catchAsync(async (req, res, next) => {
         })
         .populate({
             path: "participants",
-            select: "name displayPicture"  
+            select: "name username displayPicture"  
         });
 
     res.status(200).json({
