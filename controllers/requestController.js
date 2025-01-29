@@ -21,7 +21,7 @@ export const getRequests = catchAsync(async (req, res, next) => {
 	});
 
 	const requests = await Promise.all(reqPromise);
-	requests.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+	requests.sort((a, b) => new Date(b.sentAt) - new Date(a.sentAt));
 
 	let allRequests = [];
 	allRequests.push(...requests)

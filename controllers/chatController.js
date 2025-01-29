@@ -41,7 +41,7 @@ export const getTeachingChats = catchAsync(async (req, res, next) => {
 export const getLearningChats = catchAsync(async (req, res, next) => {
 	const user = await User.findById(req.user.id);
 
-	const chatPromise = user.teachingConversations.map(async (chatID) => {
+	const chatPromise = user.learningConversations.map(async (chatID) => {
 		const chat = await Chat.findById(chatID)
 		.populate({
             path: "participants",
