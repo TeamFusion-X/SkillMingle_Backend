@@ -6,18 +6,28 @@ export const getTeachingChats = catchAsync(async (req, res, next) => {
 	const user = await User.findById(req.user.id);
 
 	const chatPromise = user.teachingConversations.map(async (chatID) => {
-		const chat = await Chat.findById(chatID).populate("participants");
+		const chat = await Chat.findById(chatID)
+		.populate({
+            path: "participants",
+            select: "username displayPicture"  
+        });;
 		const id = chat._id;
 		const chatTitle = chat.chatTitle;
 		const chatWith =
 			req.user.id == chat.participants[0]._id
 				? chat.participants[1].username
 				: chat.participants[0].username;
+		const displayPicture = 
+			req.user.id == chat.participants[0]._id
+				? chat.participants[1].displayPicture
+				: chat.participants[0].displayPicture;
+		const updatedAt = chat.updatedAt;
 
-		return { id, chatTitle, chatWith };
+		return { id, chatTitle, chatWith, displayPicture, updatedAt };
 	});
 
 	const chats = await Promise.all(chatPromise);
+	chats.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
 
 	let allTeachingChats = [];
 	allTeachingChats.push(...chats);
@@ -31,19 +41,29 @@ export const getTeachingChats = catchAsync(async (req, res, next) => {
 export const getLearningChats = catchAsync(async (req, res, next) => {
 	const user = await User.findById(req.user.id);
 
-	const chatPromise = user.learningConversations.map(async (chatID) => {
-		const chat = await Chat.findById(chatID).populate("participants");
+	const chatPromise = user.teachingConversations.map(async (chatID) => {
+		const chat = await Chat.findById(chatID)
+		.populate({
+            path: "participants",
+            select: "username displayPicture"  
+        });;
 		const id = chat._id;
 		const chatTitle = chat.chatTitle;
 		const chatWith =
 			req.user.id == chat.participants[0]._id
 				? chat.participants[1].username
 				: chat.participants[0].username;
+		const displayPicture = 
+			req.user.id == chat.participants[0]._id
+				? chat.participants[1].displayPicture
+				: chat.participants[0].displayPicture;
+		const updatedAt = chat.updatedAt;
 
-		return { id, chatTitle, chatWith };
+		return { id, chatTitle, chatWith, displayPicture, updatedAt };
 	});
 
 	const chats = await Promise.all(chatPromise);
+	chats.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
 
 	let allLearningChats = [];
 	allLearningChats.push(...chats);

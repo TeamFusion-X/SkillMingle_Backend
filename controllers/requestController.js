@@ -7,15 +7,21 @@ export const getRequests = catchAsync(async (req, res, next) => {
 	const user = await User.findById(req.user.id);
 
 	const reqPromise = user.requestsReceived.map(async requestID => {
-		const request = await Request.findById(requestID).populate("sender");
+		const request = await Request.findById(requestID)
+			.populate({
+            	path: "sender",
+            	select: "username"  
+        	});
 		const id = requestID;
 		const skill = request.skill;
 		const sender = request.sender.username;
+		const sentAt = request.createdAt;
 
-		return {id, skill, sender};
+		return {id, skill, sender, sentAt};
 	});
 
 	const requests = await Promise.all(reqPromise);
+	requests.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
 
 	let allRequests = [];
 	allRequests.push(...requests)
