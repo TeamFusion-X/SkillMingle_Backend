@@ -8,4 +8,4 @@ router.use(authController.protect);
 router.get('/teach', chatController.getTeachingChats);
 router.get('/learn', chatController.getLearningChats);
 router.get('/:chatId', chatController.getChat);
-router.get('/increaseProgress/:chatID', chatController.increaseSkillPercentage);
+router.get('/increaseProgress/:chatId', chatController.increaseSkillPercentage);

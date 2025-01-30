@@ -1,4 +1,5 @@
 import { User } from "./../models/userModel.js";
+import { AppError } from "./../utils/appError.js";
 import { Chat } from "./../models/chatModel.js";
 import { catchAsync } from "./../utils/catchAsync.js";
 
