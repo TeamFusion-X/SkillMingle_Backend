@@ -97,12 +97,21 @@ export const getChat = catchAsync(async (req, res, next) => {
 });
 
 export const increaseSkillPercentage = catchAsync(async (req, res, next) => {
-	const chat = await Chat.findByIdAndUpdate(req.params.chatId, {
-		skillProgress: Math.max(skillProgress + 10, 100),
-	});
+    const currentChat = await Chat.findById(req.params.chatId);
+    
+    if (!currentChat) {
+		return next(new AppError('No chat found with this ID', 404));
+    }
 
-	res.status(200).json({
-		status: "success",
+    const newSkillProgress = Math.min(currentChat.skillProgress + 10, 100);
+
+    const updatedChat = await Chat.findByIdAndUpdate(
+        req.params.chatId,
+        { skillProgress: newSkillProgress },
+    );
+
+    res.status(200).json({
+        status: "success",
 		message: "Skill progress percentage increased successfully."
 	});
 });
