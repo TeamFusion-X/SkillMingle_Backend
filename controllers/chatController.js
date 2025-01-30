@@ -98,10 +98,11 @@ export const getChat = catchAsync(async (req, res, next) => {
 
 export const increaseSkillPercentage = catchAsync(async (req, res, next) => {
 	const chat = await Chat.findByIdAndUpdate(req.params.chatId, {
-		skillProgress: skillProgress + 10,
+		skillProgress: Math.max(skillProgress + 10, 100),
 	});
 
 	res.status(200).json({
 		status: "success",
+		message: "Skill progress percentage increased successfully."
 	});
 });
